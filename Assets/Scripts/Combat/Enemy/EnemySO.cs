@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemySO : ScriptableObject
 {
 
-        public List<Limb> Limbs;
+        public List<LimbScriptable> Limbs;
         public float Initiative;
 
 

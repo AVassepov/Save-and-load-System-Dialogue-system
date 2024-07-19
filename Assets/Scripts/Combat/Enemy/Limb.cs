@@ -2,20 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-[CreateAssetMenu(fileName = "Limb", menuName =  "Combat/Enemy/Limb", order = 1)]
-public class Limb : ScriptableObject
+public class Limb : MonoBehaviour
 {
-    public float Dodge, HP;
 
-    [Range(0f, 1f)]
-    public float BludgeoningResistance, SlashingResistance, StabbingResistance, DivineResistance, ElementResistance;
+    public float Health;
+    public bool critical;
+    public EnemyCombat Enemy;
+    
+    public void DealDamage(float damage)
+    {
+        Health -= damage;
 
-    public bool Critical;
+        if (Health <= 0)
+        {
+            //destroy limb
+
+            if (critical)
+            {
+                Enemy.Die();
+            }
+        }
 
 
- //   public List<CombatAbility> Abilities;
+    }
+
 
 
 }

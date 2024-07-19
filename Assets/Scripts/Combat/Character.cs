@@ -108,6 +108,8 @@ public class Equipment
 [System.Serializable]
 public class Conditions
 {
+    public float Health;
+    public int Legs=2 , Arms =2;
     public List<Character.Affliction> Afflictions;
     public List<Character.Buff> Buffs;
 }

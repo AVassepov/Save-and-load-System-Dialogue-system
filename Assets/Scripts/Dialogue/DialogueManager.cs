@@ -42,14 +42,42 @@ public class DialogueManager : MonoBehaviour
 
        if (Input.GetKeyDown(KeyCode.Space) && canSkip)
        {
-           if (charCounter==0)
+           
+           if (charCounter == 0)
            {
-               ContinueDialogue();
+               if (NextDialogue != null)
+               {
+                   ContinueDialogue();
+               }
+               else
+               {
+                   FinishDialogue();
+               }
            }
+           
+           SkipScroll();
+
+           Invoke("Skipbool" ,0.5f);
+       }else if (Input.GetKeyDown(KeyCode.Space) && !canSkip)
+       {
+           if (charCounter == 0)
+           {
+               if (NextDialogue != null)
+               {
+                   ContinueDialogue();
+               }
+               else
+               {
+                   FinishDialogue();
+               }
+           }
+           
+           Invoke("Skipbool" ,0.5f);
        }
        
-       
-        if (Input.GetMouseButtonDown(0) && CurrentOption)
+
+
+       if (Input.GetMouseButtonDown(0) && CurrentOption)
         {
             SelectOption();
             CurrentOption = null;
@@ -90,7 +118,7 @@ public class DialogueManager : MonoBehaviour
     {
 
         //Next dialogue if no responce options
-        if (NextDialogue.Responces.Count == 0)
+        if (NextDialogue && NextDialogue.Responces.Count == 0)
         {
             NextDialogue = NextDialogue.NextDialogue;
             currentPage = NextDialogue.Text;
@@ -155,11 +183,18 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowResponces()
     {
-        for (int i = 0; i < NextDialogue.Responces.Count; i++)
+        if (NextDialogue.Responces.Count > 0)
         {
-            ResponceOptions[i].Data = NextDialogue.Responces[i];
-            ResponceOptions[i].gameObject.SetActive(true) ;
-            ResponceOptions[i].DialogueManager = this;
+            for (int i = 0; i < NextDialogue.Responces.Count; i++)
+            {
+                ResponceOptions[i].Data = NextDialogue.Responces[i];
+                ResponceOptions[i].gameObject.SetActive(true);
+                ResponceOptions[i].DialogueManager = this;
+            }
+        }
+        else
+        {
+            FinishDialogue();
         }
     }
 
@@ -199,8 +234,18 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(FadeTextToZeroAlpha(1f, NotificationText));
     }
 
-
-
+    private void Skipbool()
+    {
+        if (canSkip)
+        {
+            canSkip = false;
+        }
+        else{
+            canSkip = true;
+        }
+        
+    }
+    
 
     public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI i)
     {
