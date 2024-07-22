@@ -69,7 +69,29 @@ public class Character : MonoBehaviour
 
     public void UpdateEquipment(Item NewEquipment)
     {
+        Weapon weapon = NewEquipment as Weapon;
+        Armor armor = NewEquipment as Armor;
 
+        if (armor)
+        {
+            print("was armor");
+        }
+        else if (weapon)
+        {
+            print("was weapon");
+        }
+        else
+        {
+            print("was other");
+        }
+    }
+
+
+    public void UpdateResources(float health , float food, float will)
+    {
+        CharacterData.CharacterConditions.Health += health;
+        CharacterData.CharacterConditions.Hunger += food;
+        CharacterData.CharacterConditions.Will += will;
     }
 
 
@@ -104,11 +126,23 @@ public class Equipment
 
 
 }
+[System.Serializable]
+public class CharacterStats
+{
+    public float SlashRes, PierceRes, BludgeonRes, DivineRes, ElementalRes;
+    public float Strength;
+    public float Innitiative;
+    public float CastingStrength;
+
+    public int Piety, Iconoclaust, Heretic;
+
+
+}
 
 [System.Serializable]
 public class Conditions
 {
-    public float Health;
+    public float Health=100, Hunger=100,Will =100;
     public int Legs=2 , Arms =2;
     public List<Character.Affliction> Afflictions;
     public List<Character.Buff> Buffs;
@@ -119,4 +153,5 @@ public class CharacterData
 {
     public Equipment CharacterEquipment;
     public Conditions CharacterConditions;
+    public CharacterStats CharacterStatistics;
 }

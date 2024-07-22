@@ -88,7 +88,8 @@ public class DialogueManager : MonoBehaviour
     {
         // prevent walking
         GetComponent<Player>().Speed = 0;
-
+        
+        
         //Show UI 
         Canvas.enabled = true;
         if (OpeningDialogue) { 

@@ -41,10 +41,6 @@ public class Enemy : Pawn
             agent.SetDestination(new Vector3(0, 0, 0));
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Die();
-        }
         
         
         // Determening sprite 
