@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab6eec28162613438ac3524a174fcd8, type: 3}
+  m_Name: King's Wisdoms
+  m_EditorClassIdentifier: 
+  Pages:
+  - 'Upon his return from the clutches of death , the heavenly king spoke and all
+    that could hear him listened. These are the wisdoms that he shared:'
+  - 1)Humanity is a gift , and all those without human form lack soul and the true
+    gift of life. 2) Therefore all gods without a human form exist to decieve us
+    and stray us from achieving a heaven on earth for all people
+  - 3) We sould believe , it grants us strength and we strengthen whatever we believe
+    in be it people or gods , as such we shant belive in devils and pagan gods. 4)
+    Humanity is divided , be it groups, societies or entire countries. They believe
+    in what we shall avoid , but we must not judge or persecute them , rather channel
+    their faith into our one and only god
+  - 5)I am a wise man , but many more like me shall come and spread their wisdom,
+    take it to heart and write their wisdoms next to mine 6) I've come back from
+    death , but it was meant to be and in it I served humanity. And so shall all
+    other belivers die , not in vain but in service for others and for god.
+  Title: King's Wisdoms

@@ -33,9 +33,15 @@ public class BookUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && data)
+        if (data && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) ||
+                     Input.GetMouseButtonDown(0) ))
         {
             ContinueReading();
+        }
+        else if (data && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) ||
+                          Input.GetMouseButtonDown(1)))
+        {
+            GoBack();
         }
     }
 
@@ -50,6 +56,8 @@ public class BookUI : MonoBehaviour
         pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
         pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
         pageFlip.Play();
+
+        Player.Instance.AllowMovement(false);
     }
 
     public void ContinueReading()
@@ -71,6 +79,33 @@ public class BookUI : MonoBehaviour
         }
     }
 
+    public void GoBack()
+    {
+        currentPage--;
+        if (currentPage < data.Pages.Count && currentPage >=0)
+        {
+            pageText.text = (currentPage ).ToString() + " / " + data.Pages.Count.ToString();
+            if(currentPage>0){
+            text.text = data.Pages[currentPage-1];
+            }
+            else
+            {
+                text.text = data.Title;
+            }
+            pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+            pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
+            pageFlip.Play();
+        }
+        else
+        {
+            StopReading();
+            currentPage = 0;
+            print("Ended");
+        }
+    }
+        
+    
+    
     public void StopReading()
     {
         backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0f);
@@ -78,5 +113,6 @@ public class BookUI : MonoBehaviour
         data = null;
         pageText.text = "";
         text.text = "";
+        Player.Instance.AllowMovement(true);
     }
 }
