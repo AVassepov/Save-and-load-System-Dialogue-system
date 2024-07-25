@@ -26,12 +26,6 @@ public class SaveData : MonoBehaviour
 
 
 
-
-    void Awake()
-    {
-        print(ItemLibrary.instance.Armors.Count);
-    }
-
     private void Update()
     {
             if(Input.GetKeyDown(KeyCode.I)) {

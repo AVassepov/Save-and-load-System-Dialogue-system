@@ -7,9 +7,12 @@ public class BookUI : MonoBehaviour
     [Header("Images")] [SerializeField] private Image bookImage;
     [SerializeField] private Image backGround;
 
-    [Header("Text fields")] 
-    [SerializeField]private TextMeshProUGUI text;
-    [SerializeField]private TextMeshProUGUI pageText;
+    [SerializeField] private SoundLibrary Library;
+
+    [Header("Text fields")] [SerializeField]
+    private TextMeshProUGUI text;
+
+    [SerializeField] private TextMeshProUGUI pageText;
     [SerializeField] private TextMeshProUGUI titleText;
 
     [SerializeField] private AudioSource pageFlip;
@@ -17,6 +20,7 @@ public class BookUI : MonoBehaviour
 
     private BookScriptable data;
     private int currentPage;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -32,7 +36,7 @@ public class BookUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && data)
         {
             ContinueReading();
-        }   
+        }
     }
 
     public void StartReading(Sprite bookSprite, BookScriptable bookData)
@@ -43,8 +47,8 @@ public class BookUI : MonoBehaviour
         bookImage.sprite = bookSprite;
         pageText.text = "0 / " + bookData.Pages.Count.ToString();
         text.text = data.Title;
-        pageFlip.clip = SoundLibrary.instance.GetRandomAudio(SoundLibrary.instance.BookSounds);
-        pageFlip.pitch = SoundLibrary.instance.RandomPitch(new Vector2(0.8f, 1.1f));
+        pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+        pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
         pageFlip.Play();
     }
 
@@ -55,18 +59,16 @@ public class BookUI : MonoBehaviour
             pageText.text = (currentPage + 1).ToString() + " / " + data.Pages.Count.ToString();
             text.text = data.Pages[currentPage];
             currentPage++;
-            print("Continued");
-            pageFlip.clip = SoundLibrary.instance.GetRandomAudio(SoundLibrary.instance.BookSounds);
-            pageFlip.pitch = SoundLibrary.instance.RandomPitch(new Vector2(0.8f, 1.1f));
+            pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+            pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
             pageFlip.Play();
         }
         else
         {
             StopReading();
-            currentPage=0;
+            currentPage = 0;
             print("Ended");
         }
-        
     }
 
     public void StopReading()
