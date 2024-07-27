@@ -16,9 +16,9 @@ public class Chest : Interactable
 
     }
 
-    public override void Interact()
+    public override void Interact(Player player)
     {
-        base.Interact();
+        base.Interact(player);
         Item item = LootSpawner.InitiateLoot(pool, 1)[0];
         manager.Notification(item.name , 3);
         FindObjectOfType<SaveData>().UpdateInventory(item);

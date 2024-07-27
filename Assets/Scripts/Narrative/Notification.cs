@@ -13,9 +13,9 @@ public class Notification : Interactable
         manager = FindObjectOfType<DialogueManager>();
     }
 
-    public override void Interact()
+    public override void Interact(Player player)
     {
-        base.Interact();
+        base.Interact(player);
 
         manager.Notification(Text, 5);
         Destroy(gameObject);

@@ -25,17 +25,17 @@ public class SaveData : MonoBehaviour
     }
 
 
-
     private void Update()
     {
-            if(Input.GetKeyDown(KeyCode.I)) {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
             SaveIntoJson();
-            }
+        }
 
-            if (Input.GetKeyDown(KeyCode.O))
-            {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
             LoadFromJson();
-            }
+        }
     }
 
     public void UpdateInventory(Item AddThis)

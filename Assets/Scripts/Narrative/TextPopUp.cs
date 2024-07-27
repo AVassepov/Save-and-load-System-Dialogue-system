@@ -15,9 +15,9 @@ public class TextPopUp : Interactable
     }
 
 
-    public override void Interact()
+    public override void Interact(Player player)
     {
-        base.Interact();
+        base.Interact(player);
 
         if (DialogueManager.OpeningDialogue == null)
         {

@@ -9,9 +9,9 @@ public class Book : Interactable
     
     
     
-    public override void Interact()
+    public override void Interact(Player player)
     {
-        base.Interact();
+        base.Interact(player);
         BookUI.instance.StartReading(BookImage,BookScriptable);        
     }
     

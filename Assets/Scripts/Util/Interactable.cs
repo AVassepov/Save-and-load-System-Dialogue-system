@@ -13,7 +13,7 @@ public class Interactable : MonoBehaviour
         Player player = collision.GetComponent<Player>();
         if (player && isEvent)
         {
-            Interact();
+            Interact(player);
         }
         else if (player && !isEvent ) 
         {
@@ -31,7 +31,7 @@ public class Interactable : MonoBehaviour
      }
 
 
-   public virtual void Interact()
+   public virtual void Interact( Player player)
    {
         print("Interacted");
 
