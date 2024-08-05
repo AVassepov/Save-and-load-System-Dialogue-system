@@ -74,7 +74,7 @@ public class Player : Pawn
     {
         if (Interactable && Input.GetKeyDown(KeyCode.Space))
         {
-            Interactable.Interact();
+            Interactable.Interact(this);
         }
     }
 

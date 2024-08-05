@@ -780,6 +780,96 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &156736248
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.48
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.132
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.4092255
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7601226680800833775, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b8eb1f34af873d4aa662c354bd25e9e, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b8eb1f34af873d4aa662c354bd25e9e, type: 2}
+    - target: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Name
+      value: Obelisk
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830250680}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830250679}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830250682}
+  m_SourcePrefab: {fileID: 100100000, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
 --- !u!1 &250630917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEvent: 0
+  sounds: {fileID: 11400000, guid: c20a903bbee9c974cb62579e2038f267, type: 2}
   BookImage: {fileID: 21300000, guid: bef3edd367e19c84bab2400c2ddbd32b, type: 3}
   BookScriptable: {fileID: 11400000, guid: 1a6437faf8f472945879a939d9cce65e, type: 2}
 --- !u!65 &376692196
@@ -2139,7 +2230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &694711850
 Transform:
   m_ObjectHideFlags: 0
@@ -2609,6 +2700,273 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &830250677 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+  m_PrefabInstance: {fileID: 156736248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &830250679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830250677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6d48c22d6f1af40b1ab3203693c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEvent: 0
+  sounds: {fileID: 0}
+  signSprite: {fileID: 21300000, guid: bef3edd367e19c84bab2400c2ddbd32b, type: 3}
+  signText: THIS IS AN OBELISK
+--- !u!65 &830250680
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830250677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &830250682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830250677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91219aecd580e204491365d3619dec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerName: 
+  MaleFirstNames:
+  - Anton
+  - Boris
+  - Bratan
+  - Cvetko
+  - Darko
+  - "Du\u0161an"
+  - "Du\u0161ko"
+  - Gniewko
+  - Goran
+  - Gvozden
+  - Lech
+  - Leszek
+  - Lubo
+  - "Milo\u0161"
+  - Mladen
+  - Ognjen
+  - Plamen
+  - Slava
+  - Tvrtko
+  - Veselin
+  - Vlad
+  - Vuk
+  - Yasen
+  - Zdravko
+  - "\u017Divan"
+  - Blahoslav
+  - Ivan
+  - Milan
+  - Mylo
+  - Damir
+  - Kole
+  - Vladimir
+  - Vlasta
+  - Ladislav
+  - Miran
+  - Ladislaus
+  - Miroslaw
+  - Wenceslaus
+  - Bronislaw
+  - Vaclav
+  - Novak
+  - Pavel
+  - Tomislav
+  - Radoslav
+  - Boban
+  - Valeri
+  - Vasily
+  - Gelina
+  - Jovann
+  - Danek
+  - Illya
+  - Kass
+  - Casimiro
+  - Wojciech
+  - Borja
+  - Andric
+  - Juri
+  - Andrick
+  - Radovid
+  - Stannis
+  FemaleFirstNames:
+  - Masha
+  - Anna
+  - Vera
+  - Aniyah
+  - Lana
+  - Ivanna
+  - Milena
+  - Zaria
+  - Zora
+  - Raina
+  - Ivana
+  - Vayda
+  - Sonia
+  - Karolina
+  - Kalina
+  - Danica
+  - Yana
+  - Mileena
+  - Iva
+  - Danika
+  - Zofia
+  - Jarmila
+  - Miran
+  - Bronislawa
+  - Ivanka
+  - Wladyslawa
+  - Slavko
+  - Laima
+  - Jelena
+  - Mela
+  - Nadya
+  - Svetlana
+  - Elga
+  - Zoraya
+  - Darinka
+  - Tasha
+  - Zlata
+  - Aleksandra
+  - Irina
+  - Katerina
+  - Natalia
+  - Oksana
+  - Valentina
+  - Valeriya
+  - Kalina
+  - Yaroslava
+  - Agata
+  - Galina
+  - Nina
+  MaleLastNames:
+  - Melnikov
+  - Kuzencov
+  - Abramowicz
+  - Abramsky
+  - Aganin
+  - Aronov
+  - "Erli\u0107"
+  - Dudko
+  - Bachinsky
+  - Bobek
+  - "\u010Cern\xFD"
+  - Chernik
+  - Marowitz
+  - Didak
+  - Lukashov
+  - "Luki\u0107"
+  - Galowych
+  - Gavrilov
+  - Asimov
+  - Alyokhin
+  - Belyak
+  - Borzov
+  - Bosov
+  - Bovin
+  - Bulkin
+  - Besov
+  - Bespalov
+  - Chagin
+  - Chanov
+  - Demyanov
+  - Denezhkin
+  - Denisov
+  - Eldarov
+  - Eliseev
+  - Emelin
+  - Fomin
+  - Fominykh
+  - Gruznov
+  - Gryaznov
+  - Gubanov
+  - Kadyrov
+  - Kakhovsky
+  - Karazin
+  - Karelin
+  - Koshkin
+  - Kosilov
+  - Lepin
+  - Lepyokhin
+  - Malakhov
+  - Maleev
+  FemaleLastNames:
+  - Melnikova
+  - Kuzencova
+  - Abramowicz
+  - Abramsky
+  - Aganina
+  - Aronova
+  - "Erli\u0107"
+  - Dudko
+  - Bachinsky
+  - Bobek
+  - "\u010Cern\xFD"
+  - Chernik
+  - Marowitz
+  - Didak
+  - Lukashov
+  - "Luki\u0107"
+  - Galowych
+  - Gavrilova
+  - Asimova
+  - Alyokhina
+  - Belyak
+  - Borzova
+  - Bosova
+  - Bovina
+  - Bulkina
+  - Besova
+  - Bespalova
+  - Chagina
+  - Chanova
+  - Demyanova
+  - Denezhkina
+  - Denisova
+  - Eldarova
+  - Eliseeva
+  - Emelina
+  - Fomin
+  - Gruznova
+  - Gryaznova
+  - Gubanova
+  - Kadyrova
+  - Kakhovskaya
+  - Karazina
+  - Karelina
+  - Koshkina
+  - Kosilova
+  - Lepina
+  - Lepyokhina
+  - Malakhova
+  - Maleeva
 --- !u!1 &859622776
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,7 +5563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEvent: 0
   Items: []
-  lootPool: {fileID: 0}
+  lootPool: {fileID: 11400000, guid: f2e02e40a94cea945985aec3c79e1ef0, type: 2}
 --- !u!1001 &1956272413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5795,3 +6153,4 @@ SceneRoots:
   - {fileID: 465665728}
   - {fileID: 1757844269938654189}
   - {fileID: 1934765930}
+  - {fileID: 156736248}

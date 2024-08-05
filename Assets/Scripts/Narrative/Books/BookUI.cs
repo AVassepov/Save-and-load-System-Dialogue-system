@@ -7,7 +7,7 @@ public class BookUI : MonoBehaviour
     [Header("Images")] [SerializeField] private Image bookImage;
     [SerializeField] private Image backGround;
 
-    [SerializeField] private SoundLibrary Library;
+    public SoundLibrary Library;
 
     [Header("Text fields")] [SerializeField]
     private TextMeshProUGUI text;
@@ -20,6 +20,7 @@ public class BookUI : MonoBehaviour
 
     private BookScriptable data;
     private int currentPage;
+    private bool readingSign;
 
     private void Awake()
     {
@@ -33,8 +34,8 @@ public class BookUI : MonoBehaviour
 
     void Update()
     {
-        if (data && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) ||
-                     Input.GetMouseButtonDown(0) ))
+        if ((data || readingSign) && (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) ||
+                                      Input.GetMouseButtonDown(0)))
         {
             ContinueReading();
         }
@@ -45,31 +46,56 @@ public class BookUI : MonoBehaviour
         }
     }
 
-    public void StartReading(Sprite bookSprite, BookScriptable bookData)
+    public void StartReading(Sprite bookSprite, BookScriptable bookData , SoundLibrary sounds)
     {
+        Library = sounds;
         bookImage.enabled = true;
         data = bookData;
         backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0.8f);
         bookImage.sprite = bookSprite;
         pageText.text = "0 / " + bookData.Pages.Count.ToString();
         text.text = data.Title;
-        pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
-        pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
-        pageFlip.Play();
+        if (Library)
+        {
+            pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+            pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
+            pageFlip.Play();
+        }
 
+        Player.Instance.AllowMovement(false);
+    }
+
+    public void ReadSign(Sprite signSprite, string readingText, SoundLibrary sounds)
+    {
+        Library = sounds;
+        bookImage.enabled = true;
+        backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0.8f);
+        bookImage.sprite = signSprite;
+        text.text = readingText;
+        if (Library)
+        {
+            pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+            pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
+            pageFlip.Play();
+        }
+
+        readingSign = true;
         Player.Instance.AllowMovement(false);
     }
 
     public void ContinueReading()
     {
-        if (currentPage < data.Pages.Count)
+        if (data && currentPage < data.Pages.Count)
         {
             pageText.text = (currentPage + 1).ToString() + " / " + data.Pages.Count.ToString();
             text.text = data.Pages[currentPage];
             currentPage++;
-            pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
-            pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
-            pageFlip.Play();
+            if (Library)
+            {
+                pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
+                pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
+                pageFlip.Play();
+            }
         }
         else
         {
@@ -82,16 +108,18 @@ public class BookUI : MonoBehaviour
     public void GoBack()
     {
         currentPage--;
-        if (currentPage < data.Pages.Count && currentPage >=0)
+        if (currentPage < data.Pages.Count && currentPage >= 0)
         {
-            pageText.text = (currentPage ).ToString() + " / " + data.Pages.Count.ToString();
-            if(currentPage>0){
-            text.text = data.Pages[currentPage-1];
+            pageText.text = (currentPage).ToString() + " / " + data.Pages.Count.ToString();
+            if (currentPage > 0)
+            {
+                text.text = data.Pages[currentPage - 1];
             }
             else
             {
                 text.text = data.Title;
             }
+
             pageFlip.clip = AudioManager.GetRandomAudio(Library.Sounds);
             pageFlip.pitch = AudioManager.RandomPitch(new Vector2(0.8f, 1.1f));
             pageFlip.Play();
@@ -103,9 +131,8 @@ public class BookUI : MonoBehaviour
             print("Ended");
         }
     }
-        
-    
-    
+
+
     public void StopReading()
     {
         backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0f);
@@ -114,5 +141,7 @@ public class BookUI : MonoBehaviour
         pageText.text = "";
         text.text = "";
         Player.Instance.AllowMovement(true);
+        readingSign = false;
+        Library = null;
     }
 }

@@ -1,0 +1,361 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2808793045373588062
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.51320964
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7601226680800833775, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b8eb1f34af873d4aa662c354bd25e9e, type: 2}
+    - target: {fileID: -4683669308469848369, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b8eb1f34af873d4aa662c354bd25e9e, type: 2}
+    - target: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_Name
+      value: Obelisk
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8542074467596213000}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2409224147713047732}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3368735474376716315}
+  m_SourcePrefab: {fileID: 100100000, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+--- !u!1 &3043236758421090063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+  m_PrefabInstance: {fileID: 2808793045373588062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8542074467596213000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043236758421090063}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2409224147713047732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043236758421090063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6d48c22d6f1af40b1ab3203693c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEvent: 0
+  sounds: {fileID: 0}
+  signSprite: {fileID: 0}
+  SignText: 
+--- !u!114 &3368735474376716315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3043236758421090063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91219aecd580e204491365d3619dec33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObeliskPrefab: {fileID: 0}
+  ObeliskInstances: []
+  PlayerName: 
+  MaleFirstNames:
+  - Anton
+  - Boris
+  - Bratan
+  - Cvetko
+  - Darko
+  - "Du\u0161an"
+  - "Du\u0161ko"
+  - Gniewko
+  - Goran
+  - Gvozden
+  - Lech
+  - Leszek
+  - Lubo
+  - "Milo\u0161"
+  - Mladen
+  - Ognjen
+  - Plamen
+  - Slava
+  - Tvrtko
+  - Veselin
+  - Vlad
+  - Vuk
+  - Yasen
+  - Zdravko
+  - "\u017Divan"
+  - Blahoslav
+  - Ivan
+  - Milan
+  - Mylo
+  - Damir
+  - Kole
+  - Vladimir
+  - Vlasta
+  - Ladislav
+  - Miran
+  - Ladislaus
+  - Miroslaw
+  - Wenceslaus
+  - Bronislaw
+  - Vaclav
+  - Novak
+  - Pavel
+  - Tomislav
+  - Radoslav
+  - Boban
+  - Valeri
+  - Vasily
+  - Gelina
+  - Jovann
+  - Danek
+  - Illya
+  - Kass
+  - Casimiro
+  - Wojciech
+  - Borja
+  - Andric
+  - Juri
+  - Andrick
+  - Radovid
+  - Stannis
+  FemaleFirstNames:
+  - Masha
+  - Anna
+  - Vera
+  - Aniyah
+  - Lana
+  - Ivanna
+  - Milena
+  - Zaria
+  - Zora
+  - Raina
+  - Ivana
+  - Vayda
+  - Sonia
+  - Karolina
+  - Kalina
+  - Danica
+  - Yana
+  - Mileena
+  - Iva
+  - Danika
+  - Zofia
+  - Jarmila
+  - Miran
+  - Bronislawa
+  - Ivanka
+  - Wladyslawa
+  - Slavko
+  - Laima
+  - Jelena
+  - Mela
+  - Nadya
+  - Svetlana
+  - Elga
+  - Zoraya
+  - Darinka
+  - Tasha
+  - Zlata
+  - Aleksandra
+  - Irina
+  - Katerina
+  - Natalia
+  - Oksana
+  - Valentina
+  - Valeriya
+  - Kalina
+  - Yaroslava
+  - Agata
+  - Galina
+  - Nina
+  MaleLastNames:
+  - Melnikov
+  - Kuzencov
+  - Abramowicz
+  - Abramsky
+  - Aganin
+  - Aronov
+  - "Erli\u0107"
+  - Dudko
+  - Bachinsky
+  - Bobek
+  - "\u010Cern\xFD"
+  - Chernik
+  - Marowitz
+  - Didak
+  - Lukashov
+  - "Luki\u0107"
+  - Galowych
+  - Gavrilov
+  - Asimov
+  - Alyokhin
+  - Belyak
+  - Borzov
+  - Bosov
+  - Bovin
+  - Bulkin
+  - Besov
+  - Bespalov
+  - Chagin
+  - Chanov
+  - Demyanov
+  - Denezhkin
+  - Denisov
+  - Eldarov
+  - Eliseev
+  - Emelin
+  - Fomin
+  - Fominykh
+  - Gruznov
+  - Gryaznov
+  - Gubanov
+  - Kadyrov
+  - Kakhovsky
+  - Karazin
+  - Karelin
+  - Koshkin
+  - Kosilov
+  - Lepin
+  - Lepyokhin
+  - Malakhov
+  - Maleev
+  FemaleLastNames:
+  - Melnikova
+  - Kuzencova
+  - Abramowicz
+  - Abramsky
+  - Aganina
+  - Aronova
+  - "Erli\u0107"
+  - Dudko
+  - Bachinsky
+  - Bobek
+  - "\u010Cern\xFD"
+  - Chernik
+  - Marowitz
+  - Didak
+  - Lukashov
+  - "Luki\u0107"
+  - Galowych
+  - Gavrilova
+  - Asimova
+  - Alyokhina
+  - Belyak
+  - Borzova
+  - Bosova
+  - Bovina
+  - Bulkina
+  - Besova
+  - Bespalova
+  - Chagina
+  - Chanova
+  - Demyanova
+  - Denezhkina
+  - Denisova
+  - Eldarova
+  - Eliseeva
+  - Emelina
+  - Fomin
+  - Gruznova
+  - Gryaznova
+  - Gubanova
+  - Kadyrova
+  - Kakhovskaya
+  - Karazina
+  - Karelina
+  - Koshkina
+  - Kosilova
+  - Lepina
+  - Lepyokhina
+  - Malakhova
+  - Maleeva
