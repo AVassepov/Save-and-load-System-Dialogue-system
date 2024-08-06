@@ -68,6 +68,30 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3b8eb1f34af873d4aa662c354bd25e9e, type: 2}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.66457903
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6643471
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.24188694
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.24180251
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: -5477749408508380018, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: -4683669308469848369, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -75,6 +99,34 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
       propertyPath: m_Name
       value: Obelisk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7064338
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7064338
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.030843612
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.030843612
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 1300264252759386080, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -89,6 +141,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3368735474376716315}
+    - targetCorrespondingSourceObject: {fileID: -8391222552659086748, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4744438885113799288}
   m_SourcePrefab: {fileID: 100100000, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
 --- !u!1 &3043236758421090063 stripped
 GameObject:
@@ -114,8 +169,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3, y: 3, z: 3}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.5, y: 4.9389205, z: 3.5}
+  m_Center: {x: 0, y: 0.9694595, z: 0}
 --- !u!114 &2409224147713047732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,3 +414,29 @@ MonoBehaviour:
   - Lepyokhina
   - Malakhova
   - Maleeva
+--- !u!1 &3276005789689880634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8391222552659086748, guid: 488aab781d2a07c4ba189db8d455065b, type: 3}
+  m_PrefabInstance: {fileID: 2808793045373588062}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4744438885113799288
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3276005789689880634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.024430333, y: 0.024430329, z: 0.069078706}
+  m_Center: {x: 0, y: 5.5701284e-18, z: 0.024539353}

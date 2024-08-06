@@ -37,7 +37,6 @@ public class Pawn : MonoBehaviour
 
          rigidbody = gameObject.AddComponent<Rigidbody>();
          rigidbody.freezeRotation = true;
-         rigidbody.useGravity = false;
 
 
     }
