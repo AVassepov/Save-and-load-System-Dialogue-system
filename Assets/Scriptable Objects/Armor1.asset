@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56761c7281381df4996434103697bce5, type: 3}
   m_Name: Armor1
   m_EditorClassIdentifier: 
-  BludgeoningResistance: 0
+  BludgeoningResistance: 0.1
   SlashingResistance: 0
   StabbingResistance: 0
   DivineResistance: 0

@@ -7,6 +7,7 @@ public class ObeliskManager : MonoBehaviour
     [SerializeField] private GameObject ObeliskPrefab;
     public List<Sign> ObeliskInstances;
     public string PlayerName;
+    public int PlayerYear;
     private Player player;
 
     public string[] MaleFirstNames = new string[]
@@ -53,10 +54,18 @@ public class ObeliskManager : MonoBehaviour
         print(GetFullText());
         for (int i = 0; i < 10; i++)
         {
-            Sign temp = Instantiate(ObeliskPrefab, new Vector3(0, 1.14f,(5*6)-( i * 6f)), new Quaternion(0,20,0,0))
-                .GetComponent<Sign>();
+            Sign temp = Instantiate(ObeliskPrefab, new Vector3(0, 1.14f,(5*6)-( i * 6f)), new Quaternion(0,20,0,0)).GetComponent<Sign>();
             ObeliskInstances.Add(temp);
-            temp.SignText = GetFullText();
+            temp.gameObject.name += i.ToString();
+            if(i!=5)
+            {
+                temp.SignText = GetFullText();
+            }else
+            {
+                temp.SignText = PlayerName;
+                temp.SignText+=  "\n" + PlayerYear.ToString() + "-" + "1346";
+
+            }
         }
 
         player = Player.Instance;
@@ -70,12 +79,12 @@ public class ObeliskManager : MonoBehaviour
     private void Update()
     {
         if (player && player.transform.position.z >
-            ObeliskInstances[ObeliskInstances.Count / 2].transform.position.z + 1)
+            ObeliskInstances[ObeliskInstances.Count / 2].transform.position.z + 5)
         {
             SetPositions(ObeliskInstances[ObeliskInstances.Count / 2].transform.position, 1);
         }
         else if (player && player.transform.position.z <
-                 ObeliskInstances[ObeliskInstances.Count / 2].transform.position.z - 1)
+                 ObeliskInstances[ObeliskInstances.Count / 2].transform.position.z - 5)
         {
             SetPositions(ObeliskInstances[ObeliskInstances.Count / 2].transform.position, -1);
         }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,11 +8,16 @@ public class Character : MonoBehaviour
     //or maybe inherit from character to create an Enemy class and manage those in a class still called (enemy manager)
 
 
-
+    private float timePassed;
     public CharacterData CharacterData;
 
     public FileName SavedFileName;
 
+    public int HungerDelay = 20;
+    
+    [SerializeField] Armor EquipThis;
+    
+    
     public enum FileName
     {
         None,
@@ -57,15 +61,63 @@ public class Character : MonoBehaviour
         Parasites,
         Nausea,
         Fracture,
-        Migrane
+        Migrane,
+        Weakness,
+        Starvation
 
     }
 
 
     private void Awake()
     {
-        SaveCharacter();
+        LoadCharacter();
     }
+
+
+    public void Update()
+    {
+        timePassed += Time.deltaTime;
+        if (timePassed>HungerDelay)
+        {
+            print("hungry");
+            HungerCheck();
+            timePassed = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            UpdateEquipment(EquipThis);
+        }else  if (Input.GetKeyDown(KeyCode.T))
+        {
+            SaveCharacter();
+        }else  if (Input.GetKeyDown(KeyCode.Y))
+        {
+            LoadCharacter();
+        }
+        
+        
+    }
+
+    public void HungerCheck()
+    {
+        CharacterData.CharacterConditions.Hunger--;
+
+        if (CharacterData.CharacterConditions.Hunger == 0)
+        {
+          Die();  
+        }else if (CharacterData.CharacterConditions.Hunger == 60)
+        {
+            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Weakness);
+        }else if (CharacterData.CharacterConditions.Hunger ==30)
+        {
+            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Starvation);
+        }
+    }
+    
+    public void Die(){
+        
+    }
+
 
     public void UpdateEquipment(Item NewEquipment)
     {
@@ -74,10 +126,33 @@ public class Character : MonoBehaviour
 
         if (armor)
         {
+            Armor oldArmor = null;
+
+
+            if (armor.Slot == ArmorSlots.Body)
+            {
+                oldArmor = CharacterData.CharacterEquipment.Torso;
+                CharacterData.CharacterEquipment.Torso = armor;
+            }
+            else if (armor.Slot == ArmorSlots.Head)
+            {
+                oldArmor = CharacterData.CharacterEquipment.Helmet;
+                CharacterData.CharacterEquipment.Helmet = armor;
+            }
+            else if (armor.Slot == ArmorSlots.Feet)
+            {
+                oldArmor = CharacterData.CharacterEquipment.Boots;
+                CharacterData.CharacterEquipment.Boots = armor;
+            }
+
+            UpdateResistances(armor, oldArmor);
+        
+
             print("was armor");
         }
         else if (weapon)
         {
+            CharacterData.CharacterEquipment.Weapon = weapon;
             print("was weapon");
         }
         else
@@ -87,11 +162,51 @@ public class Character : MonoBehaviour
     }
 
 
-    public void UpdateResources(float health , float food, float will)
+    void UpdateResistances(Armor armor, Armor oldArmor)
     {
+        if (armor)
+        {
+            CharacterData.CharacterStatistics.BludgeonRes += armor.BludgeoningResistance;
+            CharacterData.CharacterStatistics.SlashRes += armor.SlashingResistance;
+            CharacterData.CharacterStatistics.PierceRes += armor.StabbingResistance;
+            CharacterData.CharacterStatistics.ElementalRes += armor.ElementResistance;
+            CharacterData.CharacterStatistics.DivineRes += armor.DivineResistance;
+        }
+
+        if (oldArmor)
+        {
+            CharacterData.CharacterStatistics.BludgeonRes -= oldArmor.BludgeoningResistance;
+            CharacterData.CharacterStatistics.SlashRes -= oldArmor.SlashingResistance;
+            CharacterData.CharacterStatistics.PierceRes -= oldArmor.StabbingResistance;
+            CharacterData.CharacterStatistics.ElementalRes -= oldArmor.ElementResistance;
+            CharacterData.CharacterStatistics.DivineRes -= oldArmor.DivineResistance;
+        }
+    }
+    
+    
+    public void UpdateResources(float health, float food, float will)
+    {
+        
+        // restore hp/wp/hunger granted by the consumable
         CharacterData.CharacterConditions.Health += health;
         CharacterData.CharacterConditions.Hunger += food;
         CharacterData.CharacterConditions.Will += will;
+
+        //if ate and went above theresholds , cure ailments
+        if (CharacterData.CharacterConditions.Hunger > 60)
+        {
+            if (CharacterData.CharacterConditions.Afflictions.Contains(Affliction.Weakness))
+            {
+                CharacterData.CharacterConditions.Afflictions.Remove(Affliction.Weakness);
+            }
+        }
+        else if (CharacterData.CharacterConditions.Hunger > 30)
+        {
+            if (CharacterData.CharacterConditions.Afflictions.Contains(Affliction.Starvation))
+            {
+                CharacterData.CharacterConditions.Afflictions.Remove(Affliction.Starvation);
+            }
+        }
     }
 
 
