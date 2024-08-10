@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class Character : MonoBehaviour
 
     private float timePassed;
     public CharacterData CharacterData;
-
+    private bool loaded;
     public FileName SavedFileName;
 
     public int HungerDelay = 20;
@@ -67,12 +68,23 @@ public class Character : MonoBehaviour
 
     }
 
-
-    private void Awake()
+    private void Start()
     {
-        LoadCharacter();
-    }
+        
+        for (int i = 0; i < GameStateManager.Instance.CurrentGameState.Characters.Count; i++)
+        {
+            if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
+            {
+                CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
+                loaded = true;
+            }
+        }
 
+        if (!loaded)
+        {
+            GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
+        }
+    }
 
     public void Update()
     {
@@ -87,13 +99,14 @@ public class Character : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             UpdateEquipment(EquipThis);
-        }else  if (Input.GetKeyDown(KeyCode.T))
+        }
+        /*else  if (Input.GetKeyDown(KeyCode.T))
         {
             SaveCharacter();
         }else  if (Input.GetKeyDown(KeyCode.Y))
         {
             LoadCharacter();
-        }
+        }*/
         
         
     }
@@ -269,4 +282,6 @@ public class CharacterData
     public Equipment CharacterEquipment;
     public Conditions CharacterConditions;
     public CharacterStats CharacterStatistics;
+
+    public string CharacterName;
 }

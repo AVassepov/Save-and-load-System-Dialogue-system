@@ -3,21 +3,37 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    public static GameStateManager instance { get; private set; }
+    public static GameStateManager Instance { get; private set; }
 
 
-    public GameState CurrentGameState;
+    [SerializeField]public GameState CurrentGameState;
 
     // Start is called before the first frame update
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
 
-        instance = this;
+        Instance = this;
         
+        LoadState();
+
+        
+       
+    }
+    
+    public void Update(){
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SaveState();
+            print("Saved");
+        }else  if (Input.GetKeyDown(KeyCode.Y))
+        {
+            LoadState();
+            print("Load");
+        }
     }
     
     public void SaveState()
@@ -46,5 +62,5 @@ public class GameStateManager : MonoBehaviour
 [System.Serializable]
 public class GameState
 {
-    private List<CharacterData> Characters;
+    public List<CharacterData> Characters;
 }
