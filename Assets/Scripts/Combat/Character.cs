@@ -12,14 +12,14 @@ public class Character : MonoBehaviour
     private float timePassed;
     public CharacterData CharacterData;
     private bool loaded;
-    public FileName SavedFileName;
+   // public FileName SavedFileName;
 
     public int HungerDelay = 20;
     
     [SerializeField] Armor EquipThis;
     
     
-    public enum FileName
+    /*public enum FileName
     {
         None,
         ManAtArms,
@@ -27,7 +27,7 @@ public class Character : MonoBehaviour
         Brigand,
         Victim
 
-    }
+    }*/
 
     public enum ArmorSlots {
         Head,
@@ -76,7 +76,8 @@ public class Character : MonoBehaviour
             if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
             {
                 CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
-                loaded = true;
+                loaded = true; 
+                ResetResistances();
             }
         }
 
@@ -84,6 +85,7 @@ public class Character : MonoBehaviour
         {
             GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
         }
+
     }
 
     public void Update()
@@ -142,30 +144,30 @@ public class Character : MonoBehaviour
             Armor oldArmor = null;
 
 
-            if (armor.Slot == ArmorSlots.Body)
+            if (armor.Slot == ArmorSlots.Body && CharacterData.CharacterEquipment.Torso >= 0)
             {
-                oldArmor = CharacterData.CharacterEquipment.Torso;
-                CharacterData.CharacterEquipment.Torso = armor;
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Torso];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
             }
-            else if (armor.Slot == ArmorSlots.Head)
+            else if (armor.Slot == ArmorSlots.Head && CharacterData.CharacterEquipment.Helmet >= 0)
             {
-                oldArmor = CharacterData.CharacterEquipment.Helmet;
-                CharacterData.CharacterEquipment.Helmet = armor;
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Helmet];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
             }
-            else if (armor.Slot == ArmorSlots.Feet)
+            else if (armor.Slot == ArmorSlots.Feet && CharacterData.CharacterEquipment.Boots >= 0)
             {
-                oldArmor = CharacterData.CharacterEquipment.Boots;
-                CharacterData.CharacterEquipment.Boots = armor;
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Boots];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
             }
 
             UpdateResistances(armor, oldArmor);
-        
+
 
             print("was armor");
         }
         else if (weapon)
         {
-            CharacterData.CharacterEquipment.Weapon = weapon;
+            CharacterData.CharacterEquipment.Weapon = ItemLibrary.Instance.Weapons.IndexOf(weapon);
             print("was weapon");
         }
         else
@@ -223,7 +225,7 @@ public class Character : MonoBehaviour
     }
 
 
-    public void SaveCharacter()
+    /*public void SaveCharacter()
     {
         string character = JsonUtility.ToJson(CharacterData);
         string path = Application.persistentDataPath + "/" + SavedFileName.ToString() + ".json";
@@ -238,6 +240,29 @@ public class Character : MonoBehaviour
         string character = System.IO.File.ReadAllText(path);
 
         CharacterData = JsonUtility.FromJson<CharacterData>(character);
+    }*/
+
+    private void ResetResistances()
+    {
+        CharacterData.CharacterStatistics.BludgeonRes = 0;
+        CharacterData.CharacterStatistics.DivineRes = 0;
+        CharacterData.CharacterStatistics.ElementalRes = 0;
+        CharacterData.CharacterStatistics.SlashRes = 0;
+        CharacterData.CharacterStatistics.BludgeonRes = 0;
+        if (CharacterData.CharacterEquipment.Helmet >= 0)
+        {
+            UpdateResistances(ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Helmet],null);
+        }
+
+        if (CharacterData.CharacterEquipment.Torso >= 0)
+        {
+            UpdateResistances(ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Torso],null);
+        }
+
+        if (CharacterData.CharacterEquipment.Boots >= 0)
+        {
+            UpdateResistances(ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Boots],null);
+        }
     }
 }
 
@@ -246,11 +271,11 @@ public class Character : MonoBehaviour
 [System.Serializable]
 public class Equipment
 {
-    public Armor Helmet;
-    public Armor Torso;
-    public Armor Boots;
-    public Armor Trinket1, Trinket2;
-    public Weapon Weapon;
+    public int Helmet=-1;
+    public int Torso=-1;
+    public int Boots=-1;
+    public int Trinket1=-1, Trinket2=-1;
+    public int Weapon=-1;
 
 
 }

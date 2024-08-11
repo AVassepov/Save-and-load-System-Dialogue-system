@@ -534,6 +534,30 @@ PrefabInstance:
       propertyPath: CharacterData.CharacterConditions.Arms
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Boots
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Torso
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Helmet
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Weapon
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Trinket1
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Trinket2
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 7904899187331800058, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.831
@@ -1112,8 +1136,32 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Boots
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Torso
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Helmet
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Weapon
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
       propertyPath: CharacterData.CharacterConditions.Hunger
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Trinket1
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7028878860726245707, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
+      propertyPath: CharacterData.CharacterEquipment.Trinket2
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7904899187331800058, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
       propertyPath: m_LocalPosition.y

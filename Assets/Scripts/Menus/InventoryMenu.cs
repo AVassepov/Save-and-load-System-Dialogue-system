@@ -67,16 +67,16 @@ public class InventoryMenu : MonoBehaviour
 
             if (index == 0)
             {
-                temp.GetComponent<ItemButton>().Item = ItemLibrary.instance.Weapons[ItemList[i]];   
+                temp.GetComponent<ItemButton>().Item = ItemLibrary.Instance.Weapons[ItemList[i]];   
             }else if (index == 1)
             {
-                temp.GetComponent<ItemButton>().Item = ItemLibrary.instance.Armors[ItemList[i]];   
+                temp.GetComponent<ItemButton>().Item = ItemLibrary.Instance.Armors[ItemList[i]];   
             }else if (index == 2)
             {
-                temp.GetComponent<ItemButton>().Item = ItemLibrary.instance.Consumables[ItemList[i]];   
+                temp.GetComponent<ItemButton>().Item = ItemLibrary.Instance.Consumables[ItemList[i]];   
             }else 
             {
-                temp.GetComponent<ItemButton>().Item = ItemLibrary.instance.KeyItems[ItemList[i]];   
+                temp.GetComponent<ItemButton>().Item = ItemLibrary.Instance.KeyItems[ItemList[i]];   
             }
 
         }

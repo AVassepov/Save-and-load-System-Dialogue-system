@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemLibrary : MonoBehaviour
 {
-    public static ItemLibrary instance { get; private set; }
+    public static ItemLibrary Instance { get; private set; }
     
     
     public List<Armor> Armors;
@@ -16,12 +16,12 @@ public class ItemLibrary : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
 
-        instance = this;
+        Instance = this;
 
     }
 

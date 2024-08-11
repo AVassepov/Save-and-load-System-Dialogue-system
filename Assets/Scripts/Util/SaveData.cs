@@ -42,19 +42,19 @@ public class SaveData : MonoBehaviour
     {
         if (AddThis is Armor)
         {
-            CurrentInventory.Armors.Add(ItemLibrary.instance.Armors.IndexOf(AddThis as Armor));
+            CurrentInventory.Armors.Add(ItemLibrary.Instance.Armors.IndexOf(AddThis as Armor));
         }
         else if (AddThis is Weapon)
         {
-            CurrentInventory.Weapons.Add(ItemLibrary.instance.Weapons.IndexOf(AddThis as Weapon));
+            CurrentInventory.Weapons.Add(ItemLibrary.Instance.Weapons.IndexOf(AddThis as Weapon));
         }
         else if (AddThis is Consumable)
         {
-            CurrentInventory.Consumables.Add(ItemLibrary.instance.Consumables.IndexOf(AddThis as Consumable));
+            CurrentInventory.Consumables.Add(ItemLibrary.Instance.Consumables.IndexOf(AddThis as Consumable));
         }
         else
         {
-            CurrentInventory.KeyItems.Add(ItemLibrary.instance.KeyItems.IndexOf(AddThis as KeyItem));
+            CurrentInventory.KeyItems.Add(ItemLibrary.Instance.KeyItems.IndexOf(AddThis as KeyItem));
         }
 
         SaveIntoJson();
