@@ -32,6 +32,52 @@ Transform:
   - {fileID: 8119545707197928049}
   m_Father: {fileID: 5531844101807476056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463751110278148558
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2746445364355895579}
+  - component: {fileID: 4307972153605650979}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2746445364355895579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463751110278148558}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0032484531, y: 0.10465458, z: -0.35000002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5531844101807476056}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4307972153605650979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463751110278148558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fc590f5e8d1ef4ca9ebd4f04ae9728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentGameState:
+    Characters: []
 --- !u!1 &2329997199487871040
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +117,7 @@ Transform:
   m_Children:
   - {fileID: 7904899187331800058}
   - {fileID: 3431439133442948843}
+  - {fileID: 2746445364355895579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6865960188500347624
@@ -314,16 +361,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharacterData:
     CharacterEquipment:
-      Helmet: {fileID: 0}
-      Torso: {fileID: 0}
-      Boots: {fileID: 0}
-      Trinket1: {fileID: 0}
-      Trinket2: {fileID: 0}
-      Weapon: {fileID: 0}
+      Helmet: -1
+      Torso: -1
+      Boots: -1
+      Trinket1: -1
+      Trinket2: -1
+      Weapon: -1
     CharacterConditions:
+      Health: 100
+      Hunger: 100
+      Will: 100
+      Legs: 2
+      Arms: 2
       Afflictions: 
       Buffs: 
-  SavedFileName: 0
+    CharacterStatistics:
+      SlashRes: 0
+      PierceRes: 0
+      BludgeonRes: 0
+      DivineRes: 0
+      ElementalRes: 0
+      Strength: 0
+      Innitiative: 0
+      CastingStrength: 0
+      Piety: 0
+      Iconoclaust: 0
+      Heretic: 0
+    CharacterName: 
+  HungerDelay: 20
+  EquipThis: {fileID: 0}
 --- !u!114 &6491494154677098063
 MonoBehaviour:
   m_ObjectHideFlags: 0
