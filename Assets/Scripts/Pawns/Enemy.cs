@@ -14,7 +14,8 @@ public class Enemy : Pawn
     private Vector3 lastPosition;
 
 
-    public bool Dead;
+    public UnitData UnitData;
+    public bool Alive = true;
 
     [SerializeField] private CombatEncounter Fight;
 
@@ -36,7 +37,8 @@ public class Enemy : Pawn
     // Update is called once per frame
     void Update()
     {
-        if (!Dead)
+        // for now move towards center
+        if (Alive)
         {
             agent.SetDestination(new Vector3(0, 0, 0));
         }
@@ -58,7 +60,7 @@ public class Enemy : Pawn
         ///   later on will actually have array of animations rather than sprites when making walking animations
 
 
-        if (Time.frameCount % 10 == 0 && !Dead)
+        if (Time.frameCount % 10 == 0 && Alive)
         {
             lastPosition = transform.position;
         }
@@ -129,7 +131,7 @@ public class Enemy : Pawn
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.GetComponent<Player>() && !Dead)
+        if (collision.GetComponent<Player>() && Alive)
         {
             //start fight, will have to carry over the data of the enemy this enemy and save positions to keep positions
             //after loading back into overworld after fight 
@@ -143,7 +145,17 @@ public class Enemy : Pawn
 
     public void Die()
     {
-        Dead = true;
+        Alive = false;
         agent.isStopped = true;
     }
+}
+
+[System.Serializable]
+public class UnitData
+{
+    public Vector3 Position;
+    public string ID;
+    public bool Alive = true;
+
+    public List<float> LimbHeath;
 }

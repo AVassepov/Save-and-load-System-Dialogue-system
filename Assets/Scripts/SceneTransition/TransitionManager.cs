@@ -27,6 +27,7 @@ public class TransitionManager : MonoBehaviour
 
         instance = this;
         
+        DontDestroyOnLoad(this);
         
     }
 
@@ -82,6 +83,13 @@ public class TransitionManager : MonoBehaviour
 
     public void BeginTransition(int newSceneIndex , int lastSceneIndex)
     {
+        EnemySpawner enemies = EnemySpawner.Instance;
+
+        if (enemies)
+        {
+            enemies.SavePositions();
+        }
+        
       StartCoroutine(  FadeImage(false));
         nextScene = newSceneIndex;
         lastScene = lastSceneIndex;

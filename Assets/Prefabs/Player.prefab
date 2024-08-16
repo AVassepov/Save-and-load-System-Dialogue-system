@@ -42,6 +42,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2746445364355895579}
   - component: {fileID: 4307972153605650979}
+  - component: {fileID: 548878485800023932}
+  - component: {fileID: 6976739294561575292}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -78,6 +80,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentGameState:
     Characters: []
+    Units:
+      Positions: []
+      ID: []
+--- !u!114 &548878485800023932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463751110278148558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff788ee4cb82e1f4d85799281ab94fb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Armors:
+  - {fileID: 11400000, guid: 592b1547a6b3ebb49bdf532cff01ffe9, type: 2}
+  Weapons:
+  - {fileID: 11400000, guid: bca34d65a7658dd4fb4c388849bc4d1b, type: 2}
+  Consumables:
+  - {fileID: 11400000, guid: 1d95078bf4a91a149abe29110f6c7e3f, type: 2}
+  KeyItems: []
+--- !u!114 &6976739294561575292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463751110278148558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a74702e1819ce964ba2b94b6b7252709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OpeningDialogue: {fileID: 0}
+  NextDialogue: {fileID: 0}
+  Canvas: {fileID: 0}
+  TextField: {fileID: 0}
+  SpeakerName: {fileID: 0}
+  NotificationBackground: {fileID: 0}
+  NotificationText: {fileID: 0}
+  CurrentOption: {fileID: 0}
+  ResponceOptions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  printing: 0
 --- !u!1 &2329997199487871040
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,11 +139,9 @@ GameObject:
   - component: {fileID: 6865960188500347624}
   - component: {fileID: 1828208019074170431}
   - component: {fileID: 5290953141460807894}
-  - component: {fileID: 1869201956736820737}
   - component: {fileID: 1504209652098596991}
   - component: {fileID: 7028878860726245707}
   - component: {fileID: 6491494154677098063}
-  - component: {fileID: 8449238493156463154}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -304,31 +351,6 @@ MonoBehaviour:
   PlayerModel: {fileID: 3431439133442948843}
   savedSpeed: 0
   TargetZ: 0
---- !u!114 &1869201956736820737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329997199487871040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74702e1819ce964ba2b94b6b7252709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OpeningDialogue: {fileID: 0}
-  NextDialogue: {fileID: 0}
-  Canvas: {fileID: 0}
-  TextField: {fileID: 0}
-  SpeakerName: {fileID: 0}
-  NotificationBackground: {fileID: 0}
-  NotificationText: {fileID: 0}
-  CurrentOption: {fileID: 0}
-  ResponceOptions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  printing: 0
 --- !u!114 &1504209652098596991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,25 +433,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &8449238493156463154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329997199487871040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff788ee4cb82e1f4d85799281ab94fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Armors:
-  - {fileID: 11400000, guid: 592b1547a6b3ebb49bdf532cff01ffe9, type: 2}
-  Weapons:
-  - {fileID: 11400000, guid: bca34d65a7658dd4fb4c388849bc4d1b, type: 2}
-  Consumables:
-  - {fileID: 11400000, guid: 1d95078bf4a91a149abe29110f6c7e3f, type: 2}
-  KeyItems: []
 --- !u!1 &8285467225197946590
 GameObject:
   m_ObjectHideFlags: 0

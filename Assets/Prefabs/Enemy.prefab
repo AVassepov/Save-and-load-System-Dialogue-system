@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8abba1396833cad42b21f601376136b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scale: {x: 1, y: 1}
+  Scale: {x: 1, y: 1, z: 1}
   Speed: 1
   sprites:
   - {fileID: 21300000, guid: 554c3508ccb04dc4ba62e918195f8fb4, type: 3}
@@ -111,4 +111,14 @@ MonoBehaviour:
   renderer: {fileID: 0}
   agent: {fileID: 0}
   CombatTrigger: {fileID: 0}
+  UnitData:
+    Position: {x: 0, y: 0, z: 0}
+    ID: 
+    Alive: 1
+    LimbHeath:
+    - 40
+    - 20
+    - 20
+    - 100
+  Alive: 1
   Fight: {fileID: 0}

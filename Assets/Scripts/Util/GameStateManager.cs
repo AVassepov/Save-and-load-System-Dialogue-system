@@ -20,7 +20,6 @@ public class GameStateManager : MonoBehaviour
         
         LoadState();
 
-        
        
     }
     
@@ -33,6 +32,11 @@ public class GameStateManager : MonoBehaviour
         {
             LoadState();
             print("Load");
+        }else  if (Input.GetKeyDown(KeyCode.R))
+        {
+            CurrentGameState = new GameState();
+            SaveState();
+            print("Reset");
         }
     }
     
@@ -62,5 +66,26 @@ public class GameStateManager : MonoBehaviour
 [System.Serializable]
 public class GameState
 {
-    public List<CharacterData> Characters;
+    public List<CharacterData> Characters = new List<CharacterData>();
+    public UnitTracker Units = new UnitTracker();
+}
+
+[System.Serializable]
+public class UnitTracker
+{
+    public List<UnitData> UnitDatas = new List<UnitData>();
+
+
+    public  int CheckID(string ID, List<UnitData> UnitDatas)
+    {
+        for (int i = 0; i < UnitDatas.Count; i++)
+        {
+            if (UnitDatas[i].ID == ID)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 }
