@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryMenu : MonoBehaviour
 {
     [SerializeField] private Character Player;
-    [SerializeField] private SaveData SaveData;
+    [SerializeField] private GameStateManager SaveData;
 
 
     [SerializeField] private Canvas InventoryUI;
@@ -17,11 +17,11 @@ public class InventoryMenu : MonoBehaviour
 
     private void Start()
     {
-        SaveData.LoadFromJson();
-        UpdateItemList(SaveData.CurrentInventory.Weapons , Tabs[0],0 );
-        UpdateItemList(SaveData.CurrentInventory.Armors, Tabs[1],1);
-        UpdateItemList(SaveData.CurrentInventory.Consumables, Tabs[2],2);
-        UpdateItemList(SaveData.CurrentInventory.KeyItems, Tabs[3],3);
+        SaveData.LoadState();
+        UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Weapons , Tabs[0],0 );
+        UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Armors, Tabs[1],1);
+        UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Consumables, Tabs[2],2);
+        UpdateItemList(SaveData.CurrentGameState.CurrentInventory.KeyItems, Tabs[3],3);
 
 
         InventoryUI.gameObject.SetActive(false);

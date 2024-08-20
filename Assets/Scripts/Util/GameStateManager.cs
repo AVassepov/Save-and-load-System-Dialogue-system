@@ -59,7 +59,41 @@ public class GameStateManager : MonoBehaviour
     
     
     
+    public void UpdateInventory(Item AddThis)
+    {
+        if (AddThis is Armor)
+        {
+           CurrentGameState.CurrentInventory.Armors.Add(ItemLibrary.Instance.Armors.IndexOf(AddThis as Armor));
+        }
+        else if (AddThis is Weapon)
+        {
+            CurrentGameState.CurrentInventory.Weapons.Add(ItemLibrary.Instance.Weapons.IndexOf(AddThis as Weapon));
+        }
+        else if (AddThis is Consumable)
+        {
+            CurrentGameState.CurrentInventory.Consumables.Add(ItemLibrary.Instance.Consumables.IndexOf(AddThis as Consumable));
+        }
+        else
+        {
+            CurrentGameState.CurrentInventory.KeyItems.Add(ItemLibrary.Instance.KeyItems.IndexOf(AddThis as KeyItem));
+        }
+
+        SaveState();
+    }
 }
+
+
+[System.Serializable]
+public class Inventory
+{
+
+    public List<int> Armors;
+    public List<int> Weapons;
+    public List<int> Consumables;
+    public List<int> KeyItems;
+    public int Money;
+}
+
 
 
 
@@ -68,6 +102,7 @@ public class GameState
 {
     public List<CharacterData> Characters = new List<CharacterData>();
     public UnitTracker Units = new UnitTracker();
+    public Inventory CurrentInventory = new Inventory();
 }
 
 [System.Serializable]

@@ -21,7 +21,7 @@ public class Chest : Interactable
         base.Interact(player);
         Item item = LootSpawner.InitiateLoot(pool, 1)[0];
         manager.Notification(item.name , 3);
-        FindObjectOfType<SaveData>().UpdateInventory(item);
+       GameStateManager.Instance.UpdateInventory(item);
         
         Destroy(this);
     }

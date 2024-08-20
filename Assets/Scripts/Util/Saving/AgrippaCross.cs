@@ -53,12 +53,12 @@ public class AgrippaCross : Interactable
 
     void AddLoot()
     {
-        SaveData data = mainCharacter.GetComponent<SaveData>();
+        
 
 
         for (int i = 0; i < Items.Count; i++)
         {
-            data.UpdateInventory(Items[i]);
+            GameStateManager.Instance.UpdateInventory(Items[i]);
         }
 
 

@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7ddc488a9f67d641bbda38b5776e7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPositions:
+  DefaultPositions:
   - {x: 15, y: 0, z: 0}
   - {x: -15, y: 0, z: 0}
   Enemies:
@@ -362,7 +362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5531844101807476056, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3.42
       objectReference: {fileID: 0}
     - target: {fileID: 5531844101807476056, guid: 77242aa0dab840f41b62318b7f03c0ef, type: 3}
       propertyPath: m_LocalRotation.w

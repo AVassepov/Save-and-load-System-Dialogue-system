@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<Vector3> EnemyPositions;
+    public List<Vector3> DefaultPositions;
 
     public List<GameObject> Enemies;
 
@@ -45,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < Enemies.Count; i++)
         {
-            Enemy enemy = Instantiate(Enemies[i], EnemyPositions[i], Quaternion.identity).GetComponent<Enemy>();
+            Enemy enemy = Instantiate(Enemies[i], DefaultPositions[i], Quaternion.identity).GetComponent<Enemy>();
             enemyInstances.Add(enemy);
             enemy.UnitData.ID = ID[i];
         }
