@@ -6,10 +6,12 @@ public class GameStateManager : MonoBehaviour
     public static GameStateManager Instance { get; private set; }
 
 
+    public string SaveName;
+    
     [SerializeField]public GameState CurrentGameState;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (Instance != null && Instance != this)
         {
@@ -17,10 +19,10 @@ public class GameStateManager : MonoBehaviour
         }
 
         Instance = this;
+
+        SaveName = SaveSystem.Instance.CurrentSave.SaveName;
         
         LoadState();
-
-       
     }
     
     public void Update(){
@@ -43,7 +45,7 @@ public class GameStateManager : MonoBehaviour
     public void SaveState()
     {
         string state = JsonUtility.ToJson(CurrentGameState);
-        string path = Application.persistentDataPath + "/" + "GameState.json";
+        string path = Application.persistentDataPath +  "/" + SaveName+"_state" +".json";
 
         Debug.Log(path);
         System.IO.File.WriteAllText(path, state);
@@ -51,7 +53,7 @@ public class GameStateManager : MonoBehaviour
 
     public void LoadState()
     {
-        string path = Application.persistentDataPath + "/" + "GameState.json";
+        string path = Application.persistentDataPath + "/" + SaveName+"_state" +".json";
         string state = System.IO.File.ReadAllText(path);
 
         CurrentGameState = JsonUtility.FromJson<GameState>(state);
