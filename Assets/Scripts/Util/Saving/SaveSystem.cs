@@ -44,6 +44,8 @@ public class SaveSystem : MonoBehaviour
         GameStateManager.Instance.SaveName = CurrentSave.SaveName;
         GameStateManager.Instance.CurrentGameState = CurrentSave.State;
 
+
+        SceneManager.LoadSceneAsync(CurrentSave.Location);
     }
 
 
