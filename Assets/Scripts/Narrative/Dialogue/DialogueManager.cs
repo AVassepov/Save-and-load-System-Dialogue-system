@@ -14,6 +14,8 @@ public class DialogueManager : MonoBehaviour
     private string currentPage;
     bool canSkip;
 
+    private bool isBusy;
+
     [SerializeField] private Canvas Canvas;
     [SerializeField] private TextMeshProUGUI TextField;
     [SerializeField] private TextMeshProUGUI SpeakerName;
@@ -27,23 +29,33 @@ public class DialogueManager : MonoBehaviour
 
     private int charCounter;
     [HideInInspector]public bool printing;
+    [HideInInspector] public AgrippaCross CurrentCross;
+    
+    public static DialogueManager Instance { get; private set; }
+
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+
+        Instance = this;
+
         Canvas.enabled = false;
     }
 
     private void Update()
     {
-       if(printing&& Time.frameCount % 20 == 0)
+       if(printing&& Time.frameCount % 10 == 0)
        {
             ScrollText();
             
        }
 
-       if (Input.GetKeyDown(KeyCode.Space) && canSkip)
+       if (Input.GetButtonDown("Jump"))
        {
-           
-           if (charCounter == 0)
+           if (charCounter == 0 && !printing)
            {
                if (NextDialogue != null)
                {
@@ -54,28 +66,11 @@ public class DialogueManager : MonoBehaviour
                    FinishDialogue();
                }
            }
-           
-           SkipScroll();
-
-           Invoke("Skipbool" ,0.5f);
-       }else if (Input.GetKeyDown(KeyCode.Space) && !canSkip)
-       {
-           if (charCounter == 0)
+           else
            {
-               if (NextDialogue != null)
-               {
-                   ContinueDialogue();
-               }
-               else
-               {
-                   FinishDialogue();
-               }
+                SkipScroll();
            }
-           
-           Invoke("Skipbool" ,0.5f);
        }
-       
-
 
        if (Input.GetMouseButtonDown(0) && CurrentOption)
         {
@@ -86,33 +81,37 @@ public class DialogueManager : MonoBehaviour
 
     public void InitiateDialogue()
     {
-        // prevent walking
-        GetComponent<Player>().Speed = 0;
-        
-        
-        //Show UI 
-        Canvas.enabled = true;
-        if (OpeningDialogue) { 
-        NextDialogue = OpeningDialogue;
+        if (!isBusy)
+        {
+            // prevent walking
+            Player.Instance.Speed = 0;
+
+
+            //Show UI 
+            Canvas.enabled = true;
+            if (OpeningDialogue)
+            {
+                NextDialogue = OpeningDialogue;
+            }
+
+            charCounter = 0;
+            printing = false;
+
+
+            //SpekerName
+            SpeakerName.text = NextDialogue.Speaker;
+
+
+            // Show first text and set up index
+            currentPage = NextDialogue.Text;
+
+
+            //Later remove this and start the text scroll instead;
+            //TextField.text = currentPage;
+            TextField.text = "";
+            printing = true;
+            isBusy = true;
         }
-        charCounter = 0;
-        printing = false;
-
-
-        //SpekerName
-        SpeakerName.text = NextDialogue.Speaker;
-
-
-
-        // Show first text and set up index
-        currentPage = NextDialogue.Text;
-
-
-        //Later remove this and start the text scroll instead;
-        //TextField.text = currentPage;
-        TextField.text = "";
-        printing = true;
-    
     }
 
     public void ContinueDialogue()
@@ -143,8 +142,7 @@ public class DialogueManager : MonoBehaviour
     public void FinishDialogue()
     {
         //walk again
-        GetComponent<Player>().Speed = GetComponent<Player>().savedSpeed;
-
+       Player.Instance.Speed =  Player.Instance.savedSpeed;
 
         //Close UI
         Canvas.enabled = false;
@@ -153,6 +151,7 @@ public class DialogueManager : MonoBehaviour
         currentPage = "";
         NextDialogue = null;
         OpeningDialogue = null;
+        isBusy = false;
     }
 
 
@@ -212,10 +211,18 @@ public class DialogueManager : MonoBehaviour
         OpeningDialogue = null ;
         OpeningDialogue = CurrentOption.Data.NextDialogue;
 
+        if (CurrentCross)
+        {
+            OpeningDialogue = CurrentCross.CheckSaveStatus();
+            
+            FinishDialogue();
+        }
+
         if (OpeningDialogue != null)
         {
             InitiateDialogue();
-        }else
+        }
+        else
         {
             FinishDialogue();
         }

@@ -22,7 +22,9 @@ public class Responces : ScriptableObject
         Exit,
         NewMenu,
         Fight,
-        Rectruit
+        Rectruit,
+        Loot,
+        CrossSave
     }
 
     //Later will add code that will tick certain bools in a global event manager, or just do it within dialogue class

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af2cdcbcb1cb8341a50619b5815ca4e, type: 3}
+  m_Name: CrossSaving
+  m_EditorClassIdentifier: 
+  Text: Before you stands a cross of saint Agripinna. May her gentle hands guide
+    you
+  Speaker: 
+  NextDialogue: {fileID: 0}
+  Responces:
+  - {fileID: 11400000, guid: 35d01e09fefd5894ebc939b495648e51, type: 2}
+  - {fileID: 11400000, guid: 07e87581ed8d2b94eb4301396e53255c, type: 2}
+  - {fileID: 11400000, guid: 18260fd7e9e25a44b9ebca7f0df00f90, type: 2}

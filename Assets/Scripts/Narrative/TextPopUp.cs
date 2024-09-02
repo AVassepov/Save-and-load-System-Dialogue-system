@@ -23,10 +23,12 @@ public class TextPopUp : Interactable
         {
             DialogueManager.OpeningDialogue = OpeningDialogue;
             DialogueManager.InitiateDialogue();
-        } else if (DialogueManager.NextDialogue.NextDialogue == null && DialogueManager.NextDialogue.Responces.Count ==0) 
+        } else if (DialogueManager.NextDialogue==null ||(DialogueManager.NextDialogue.NextDialogue == null && DialogueManager.NextDialogue.Responces.Count ==0)) 
         {
             DialogueManager.FinishDialogue();
         }
+        
+        /*
         else
         {
 
@@ -37,7 +39,7 @@ public class TextPopUp : Interactable
             {
                 DialogueManager.SkipScroll();
             }
-        }
+        }*/
 
     }
 
