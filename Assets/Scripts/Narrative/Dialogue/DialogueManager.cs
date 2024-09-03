@@ -8,7 +8,7 @@ public class DialogueManager : MonoBehaviour
 {
 
     public Dialogue OpeningDialogue;
-
+        [SerializeField] private GameObject SavingUI; 
     public Dialogue NextDialogue;
 
     private string currentPage;
@@ -121,7 +121,11 @@ public class DialogueManager : MonoBehaviour
         if (NextDialogue && NextDialogue.Responces.Count == 0)
         {
             NextDialogue = NextDialogue.NextDialogue;
+            if(NextDialogue){
             currentPage = NextDialogue.Text;
+            //SpeakerName
+            SpeakerName.text = NextDialogue.Speaker;
+            }
         }
         else
         {
@@ -130,8 +134,6 @@ public class DialogueManager : MonoBehaviour
             currentPage = "";
         }
 
-        //SpeakerName
-        SpeakerName.text = NextDialogue.Speaker;
 
 
         //Show next text
@@ -152,6 +154,7 @@ public class DialogueManager : MonoBehaviour
         NextDialogue = null;
         OpeningDialogue = null;
         isBusy = false;
+        CurrentCross = null;
     }
 
 
@@ -211,15 +214,18 @@ public class DialogueManager : MonoBehaviour
         OpeningDialogue = null ;
         OpeningDialogue = CurrentOption.Data.NextDialogue;
 
-        if (CurrentCross)
+        Responces responce = CurrentOption.Data;
+        if (responce.Outcome != Responces.ResponceOutcome.Exit || responce.Outcome != Responces.ResponceOutcome.Exit ||
+            responce.Outcome != Responces.ResponceOutcome.None)
         {
-            OpeningDialogue = CurrentCross.CheckSaveStatus();
-            
-            FinishDialogue();
+            OpeningDialogue = DialogueSpecials(responce);
         }
-
+        
+        
+        
         if (OpeningDialogue != null)
         {
+            isBusy = false;
             InitiateDialogue();
         }
         else
@@ -252,6 +258,19 @@ public class DialogueManager : MonoBehaviour
             canSkip = true;
         }
         
+    }
+
+    public Dialogue DialogueSpecials(Responces checkThis)
+    {
+        if (checkThis.Outcome == Responces.ResponceOutcome.CrossSave)
+        {
+        SavingUI.SetActive(true);
+
+            return CurrentCross.CheckSaveStatus();
+        }
+
+
+        return null;
     }
     
 
