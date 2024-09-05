@@ -10,26 +10,25 @@ public class AgrippaCross : Interactable
 
 
     public Outcomes Outcomes;
+    public int ID;
 
-
-    public bool Saved, Robbed;
-
-
-
-    public List<Item> Items;
     [SerializeField] private LootPool lootPool;
     [SerializeField] private Dialogue savingInitiation;
+
+    public CrossData Data = new CrossData();
     private Character mainCharacter;
 
-    private void Awake()
+    private void Start()
     {
-        LootSpawner.InitiateLoot(lootPool, Random.Range(1, 4));
+        Data.Loot=   LootSpawner.InitiateLoot(lootPool, Random.Range(1, 4));
+        
+        StatusCheck();
     }
 
-    void InnitiateSave()
+   public void InitiateSave()
     {
         //save to save files 
-
+        Data.alreadySaved = true;
         mainCharacter.CharacterData.CharacterStatistics.Heretic -= 2;
         mainCharacter.CharacterData.CharacterStatistics.Piety += 3;
 
@@ -69,27 +68,56 @@ public class AgrippaCross : Interactable
 
 
 
-        for (int i = 0; i < Items.Count; i++)
+        for (int i = 0; i < Data.Loot.Count; i++)
         {
-            GameStateManager.Instance.UpdateInventory(Items[i]);
+            GameStateManager.Instance.UpdateInventory( Data.Loot[i]);
         }
 
 
+    }
+
+    public void StatusCheck()
+    {
+        GameState state = GameStateManager.Instance.CurrentGameState;
+        int index = -1;
+        for (int i = 0; i < state.Crosses.Count; i++)
+        {
+            if (state.Crosses[i].worldID == ID)
+            {
+                index = i;
+            }
+        }
+
+        if (index != -1)
+        {
+           Data= state.Crosses[index];
+           print("FOUND EXISTING CROSS INSTANE");
+        }
+        else
+        {
+            state.Crosses.Add(Data);
+            print("First time loading cross");
+        }
+        
+        GameStateManager.Instance.SaveState();
     }
 
     public Dialogue CheckSaveStatus()
     {
         CharacterStats stats = Player.Instance.GetComponent<Character>().CharacterData.CharacterStatistics;
         
-        if (!Saved && !Robbed && stats.Piety > -3 && stats.Iconoclaust<5 && stats.Heretic<3)
+        if (!Data.alreadySaved && !Data.alreadyRobbed && stats.Piety > -3 && stats.Iconoclaust<5 && stats.Heretic<3)
         {
+            DialogueManager.Instance.SavingUI.SetActive(true);
+            
+            DialogueManager.Instance.WaitForDialogue = true;
             print(Outcomes.SuccessfulSave.Text);
             return Outcomes.SuccessfulSave;
-        }else if (Saved)
+        }else if (Data.alreadySaved )
         {
             print(Outcomes.RepeatedSave.Text);
             return Outcomes.RepeatedSave;
-        }else if (Robbed)
+        }else if (Data.alreadyRobbed)
         {
             print(Outcomes.RobbedSave.Text);
             return Outcomes.RobbedSave;
@@ -114,5 +142,17 @@ public struct Outcomes
     public Dialogue FailedSave;
     public Dialogue RobbedSave;
     public Dialogue RepeatedSave;
+
+}
+
+
+
+[Serializable]
+public class CrossData
+{
+    public bool alreadySaved, alreadyRobbed;
+    public List<Item> Loot;
+    public int worldID;
+
 
 }

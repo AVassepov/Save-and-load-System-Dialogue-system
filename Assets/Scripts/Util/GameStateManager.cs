@@ -105,6 +105,7 @@ public class GameState
     public List<CharacterData> Characters = new List<CharacterData>();
     public UnitTracker Units = new UnitTracker();
     public Inventory CurrentInventory = new Inventory();
+    public List<CrossData> Crosses;
 }
 
 [System.Serializable]

@@ -25,6 +25,7 @@ public class SaveSystem : MonoBehaviour
 
     public void SaveGame()
     {
+        DialogueManager.Instance.CurrentCross.StatusCheck();
         CurrentSave.State = GameStateManager.Instance.CurrentGameState;
         CurrentSave.Location = SceneManager.GetActiveScene().name;
         

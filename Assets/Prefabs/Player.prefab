@@ -78,11 +78,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fc590f5e8d1ef4ca9ebd4f04ae9728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SaveName: 
   CurrentGameState:
     Characters: []
     Units:
-      Positions: []
-      ID: []
+      UnitDatas: []
+    CurrentInventory:
+      Armors: 
+      Weapons: 
+      Consumables: 
+      KeyItems: 
+      Money: 0
 --- !u!114 &548878485800023932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OpeningDialogue: {fileID: 0}
+  SavingUI: {fileID: 0}
   NextDialogue: {fileID: 0}
   Canvas: {fileID: 0}
   TextField: {fileID: 0}
@@ -127,6 +134,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   printing: 0
+  CurrentCross: {fileID: 0}
 --- !u!1 &2329997199487871040
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +147,6 @@ GameObject:
   - component: {fileID: 6865960188500347624}
   - component: {fileID: 1828208019074170431}
   - component: {fileID: 5290953141460807894}
-  - component: {fileID: 1504209652098596991}
   - component: {fileID: 7028878860726245707}
   - component: {fileID: 6491494154677098063}
   m_Layer: 6
@@ -351,24 +358,6 @@ MonoBehaviour:
   PlayerModel: {fileID: 3431439133442948843}
   savedSpeed: 0
   TargetZ: 0
---- !u!114 &1504209652098596991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329997199487871040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4173245a651e40e419b3a8b39b7bbec5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentInventory:
-    Armors: 
-    Weapons: 
-    Consumables: 
-    KeyItems: 
-    Money: 0
 --- !u!114 &7028878860726245707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 7028878860726245707}
-  SaveData: {fileID: 1504209652098596991}
+  SaveData: {fileID: 0}
   InventoryUI: {fileID: 0}
   ItemButtonPrefab: {fileID: 6952296643970101361, guid: 39a5225283fde48479dafe581f29ccf6, type: 3}
   Tabs:
@@ -459,7 +448,7 @@ Transform:
   m_GameObject: {fileID: 8285467225197946590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.514, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []

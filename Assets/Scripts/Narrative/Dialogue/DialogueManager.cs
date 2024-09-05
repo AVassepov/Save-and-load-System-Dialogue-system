@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
 
+    public bool WaitForDialogue;
+
     public Dialogue OpeningDialogue;
-        [SerializeField] private GameObject SavingUI; 
+    public GameObject SavingUI; 
     public Dialogue NextDialogue;
 
     private string currentPage;
@@ -97,7 +99,7 @@ public class DialogueManager : MonoBehaviour
             charCounter = 0;
             printing = false;
 
-
+            
             //SpekerName
             SpeakerName.text = NextDialogue.Speaker;
 
@@ -149,12 +151,16 @@ public class DialogueManager : MonoBehaviour
         //Close UI
         Canvas.enabled = false;
 
-        // Reset Indexes
-        currentPage = "";
-        NextDialogue = null;
-        OpeningDialogue = null;
-        isBusy = false;
-        CurrentCross = null;
+
+        if (!WaitForDialogue)
+        {
+            // Reset Indexes
+            currentPage = "";
+            NextDialogue = null;
+            OpeningDialogue = null;
+            isBusy = false;
+            CurrentCross = null;
+        }
     }
 
 
@@ -223,14 +229,16 @@ public class DialogueManager : MonoBehaviour
         
         
         
-        if (OpeningDialogue != null)
+        if (OpeningDialogue != null && !WaitForDialogue)
         {
             isBusy = false;
             InitiateDialogue();
+            print("Continued as normal");
         }
-        else
+        else 
         {
             FinishDialogue();
+            print("that was the end");
         }
 
         ClearResponces();
@@ -264,15 +272,19 @@ public class DialogueManager : MonoBehaviour
     {
         if (checkThis.Outcome == Responces.ResponceOutcome.CrossSave)
         {
-        SavingUI.SetActive(true);
-
             return CurrentCross.CheckSaveStatus();
         }
 
 
         return null;
     }
-    
+
+    public void ContinueUnfinihedDialogue()
+    {
+        WaitForDialogue = false;
+        isBusy = false;
+        InitiateDialogue();
+    }
 
     public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI i)
     {

@@ -63,14 +63,15 @@ public class SavingUI : MonoBehaviour
 
     private void ResetUI()
     {
+        DialogueManager.Instance.ContinueUnfinihedDialogue();
         
-         
-       RectTransform parent =  transform.parent.parent.GetComponent<RectTransform>() ;
+        RectTransform parent = transform.parent.parent.GetComponent<RectTransform>();
 
-       LoadImage();
-        
-       parent.anchoredPosition  = new Vector3(0,  -197f, 0);
-       Camera.main.targetTexture = null;
+        LoadImage();
+
+        parent.anchoredPosition = new Vector3(0, -197f, 0);
+        Camera.main.targetTexture = null;
+        parent.gameObject.SetActive(false);
     }
 
     private void TakeScreenShot() {
