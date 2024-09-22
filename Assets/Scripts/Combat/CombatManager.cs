@@ -5,8 +5,8 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     public CombatEncounter CurrentEncounter;
+    public UnitData Data;
 
-   
 
     
     public static CombatManager instance { get; private set; }

@@ -6,5 +6,6 @@ using UnityEngine;
 public class CombatEncounter : ScriptableObject
 {
     public string Name;
+    public EnemyCombat Enemies;
     
 }

@@ -6,9 +6,15 @@ public class Limb : MonoBehaviour
 {
 
     public float Health;
-    public bool critical;
+    public bool Critical;
     public EnemyCombat Enemy;
-    
+
+
+
+
+
+
+    public List<EnemyMoveScriptable> MoveList;
     public void DealDamage(float damage)
     {
         Health -= damage;
@@ -17,15 +23,23 @@ public class Limb : MonoBehaviour
         {
             //destroy limb
 
-            if (critical)
+            if (Critical)
             {
                 Enemy.Die();
+            }
+            else
+            {
+                LoseLimb();
             }
         }
 
 
     }
 
-
+    public void LoseLimb()
+    {
+        gameObject.SetActive(false);
+        
+    }
 
 }

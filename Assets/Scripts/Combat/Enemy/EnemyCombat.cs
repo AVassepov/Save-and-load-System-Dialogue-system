@@ -1,20 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCombat : MonoBehaviour
 {
-   public EnemySO EnemyScriptable;
+   
    public float Initiative;
    public string Name;
-   public List<LimbScriptable> Limbs;
+   public List<Limb> Limbs;
+
+   private UnitData data;
 
 
+   public void Awake()
+   {
+      data =CombatManager.instance.Data;
+      
+
+
+   }  
 
    public void SetData()
    {
-      Initiative = EnemyScriptable.Initiative;
-      Limbs = EnemyScriptable.Limbs;
+
+      for (int i = 0; i < Limbs.Count; i++)
+      {
+         Limbs[i].DealDamage( Limbs[i].Health -data.LimbHeath[i] );
+      }
+      
    }
 
 
