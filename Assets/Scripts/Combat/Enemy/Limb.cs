@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Limb : MonoBehaviour
+public class Limb : Character
 {
 
     public float Health;
@@ -11,6 +11,7 @@ public class Limb : MonoBehaviour
 
 
 
+    public CharacterData CharacterData;
 
 
 

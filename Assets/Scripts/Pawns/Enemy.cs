@@ -136,7 +136,8 @@ public class Enemy : Pawn
 
             CombatManager.instance.CurrentEncounter = Fight;
             CombatManager.instance.Data = UnitData;
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Combat");
+            //SceneManager.LoadScene(1);
         }
     }
 
@@ -146,6 +147,10 @@ public class Enemy : Pawn
         Alive = false;
         agent.isStopped = true;
     }
+    
+    
+    
+    
 }
 
 [System.Serializable]

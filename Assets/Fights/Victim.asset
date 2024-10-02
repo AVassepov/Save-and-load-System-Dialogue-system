@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: Victim
   m_EditorClassIdentifier: 
   Name: Victim
+  Enemies:
+  - {fileID: 4291832888172176618, guid: f4a4904213b8e5148811b015ea9d9bfb, type: 3}
+  - {fileID: 4291832888172176618, guid: f4a4904213b8e5148811b015ea9d9bfb, type: 3}

@@ -9,15 +9,10 @@ public class Character : MonoBehaviour
     //or maybe inherit from character to create an Enemy class and manage those in a class still called (enemy manager)
 
 
-    private float timePassed;
     public CharacterData CharacterData;
     private bool loaded;
    // public FileName SavedFileName;
 
-    public int HungerDelay = 20;
-    
-    [SerializeField] Armor EquipThis;
-    
     
     /*public enum FileName
     {
@@ -85,23 +80,14 @@ public class Character : MonoBehaviour
         {
             GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
         }
-
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Update()
     {
-        timePassed += Time.deltaTime;
-        if (timePassed>HungerDelay)
-        {
-            print("hungry");
-            HungerCheck();
-            timePassed = 0;
-        }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UpdateEquipment(EquipThis);
-        }
+       
         /*else  if (Input.GetKeyDown(KeyCode.T))
         {
             SaveCharacter();
@@ -113,71 +99,14 @@ public class Character : MonoBehaviour
         
     }
 
-    public void HungerCheck()
-    {
-        CharacterData.CharacterConditions.Hunger--;
-
-        if (CharacterData.CharacterConditions.Hunger == 0)
-        {
-          Die();  
-        }else if (CharacterData.CharacterConditions.Hunger == 60)
-        {
-            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Weakness);
-        }else if (CharacterData.CharacterConditions.Hunger ==30)
-        {
-            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Starvation);
-        }
-    }
-    
+ 
     public void Die(){
         
     }
 
 
-    public void UpdateEquipment(Item NewEquipment)
-    {
-        Weapon weapon = NewEquipment as Weapon;
-        Armor armor = NewEquipment as Armor;
 
-        if (armor)
-        {
-            Armor oldArmor = null;
-
-
-            if (armor.Slot == ArmorSlots.Body && CharacterData.CharacterEquipment.Torso >= 0)
-            {
-                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Torso];
-                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
-            }
-            else if (armor.Slot == ArmorSlots.Head && CharacterData.CharacterEquipment.Helmet >= 0)
-            {
-                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Helmet];
-                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
-            }
-            else if (armor.Slot == ArmorSlots.Feet && CharacterData.CharacterEquipment.Boots >= 0)
-            {
-                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Boots];
-                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
-            }
-
-            UpdateResistances(armor, oldArmor);
-
-
-            print("was armor");
-        }
-        else if (weapon)
-        {
-            CharacterData.CharacterEquipment.Weapon = ItemLibrary.Instance.Weapons.IndexOf(weapon);
-            print("was weapon");
-        }
-        else
-        {
-            print("was other");
-        }
-    }
-
-
-    void UpdateResistances(Armor armor, Armor oldArmor)
+    public void UpdateResistances(Armor armor, Armor oldArmor)
     {
         if (armor)
         {
@@ -268,23 +197,13 @@ public class Character : MonoBehaviour
 
 
 
-[System.Serializable]
-public class Equipment
-{
-    public int Helmet=-1;
-    public int Torso=-1;
-    public int Boots=-1;
-    public int Trinket1=-1, Trinket2=-1;
-    public int Weapon=-1;
 
-
-}
 [System.Serializable]
 public class CharacterStats
 {
     public float SlashRes, PierceRes, BludgeonRes, DivineRes, ElementalRes;
     public float Strength;
-    public float Innitiative;
+    public int Innitiative;
     public float CastingStrength;
 
     public int Piety, Iconoclaust, Heretic;

@@ -121,4 +121,4 @@ MonoBehaviour:
     - 20
     - 100
   Alive: 1
-  Fight: {fileID: 0}
+  Fight: {fileID: 11400000, guid: fbecfec6bb038f7478928e0e5727f7f4, type: 2}
