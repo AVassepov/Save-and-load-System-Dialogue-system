@@ -17,7 +17,7 @@ public class Player : Pawn
     public static Player Instance;
 
 
-    private void Awake()
+    private void Start()
     {
         Line = GetComponent<LineRenderer>();
         savedSpeed = Speed;
@@ -29,6 +29,8 @@ public class Player : Pawn
         Instance = this;
 
         shootingPosition = transform.GetChild(0);
+        
+        CombatManager.Instance.Players.Add(GetComponent<Character>());
     }
 
     void FixedUpdate()

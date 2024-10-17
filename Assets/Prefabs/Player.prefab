@@ -32,109 +32,6 @@ Transform:
   - {fileID: 8119545707197928049}
   m_Father: {fileID: 5531844101807476056}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1463751110278148558
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2746445364355895579}
-  - component: {fileID: 4307972153605650979}
-  - component: {fileID: 548878485800023932}
-  - component: {fileID: 6976739294561575292}
-  m_Layer: 0
-  m_Name: Managers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2746445364355895579
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463751110278148558}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0032484531, y: 0.10465458, z: -0.35000002}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5531844101807476056}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4307972153605650979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463751110278148558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76fc590f5e8d1ef4ca9ebd4f04ae9728, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SaveName: 
-  CurrentGameState:
-    Characters: []
-    Units:
-      UnitDatas: []
-    CurrentInventory:
-      Armors: 
-      Weapons: 
-      Consumables: 
-      KeyItems: 
-      Money: 0
---- !u!114 &548878485800023932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463751110278148558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff788ee4cb82e1f4d85799281ab94fb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Armors:
-  - {fileID: 11400000, guid: 592b1547a6b3ebb49bdf532cff01ffe9, type: 2}
-  Weapons:
-  - {fileID: 11400000, guid: bca34d65a7658dd4fb4c388849bc4d1b, type: 2}
-  Consumables:
-  - {fileID: 11400000, guid: 1d95078bf4a91a149abe29110f6c7e3f, type: 2}
-  KeyItems: []
---- !u!114 &6976739294561575292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1463751110278148558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74702e1819ce964ba2b94b6b7252709, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OpeningDialogue: {fileID: 0}
-  SavingUI: {fileID: 0}
-  NextDialogue: {fileID: 0}
-  Canvas: {fileID: 0}
-  TextField: {fileID: 0}
-  SpeakerName: {fileID: 0}
-  NotificationBackground: {fileID: 0}
-  NotificationText: {fileID: 0}
-  CurrentOption: {fileID: 0}
-  ResponceOptions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  printing: 0
-  CurrentCross: {fileID: 0}
 --- !u!1 &2329997199487871040
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,8 +44,8 @@ GameObject:
   - component: {fileID: 6865960188500347624}
   - component: {fileID: 1828208019074170431}
   - component: {fileID: 5290953141460807894}
-  - component: {fileID: 7028878860726245707}
   - component: {fileID: 6491494154677098063}
+  - component: {fileID: -6215209507713704089}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -171,7 +68,6 @@ Transform:
   m_Children:
   - {fileID: 7904899187331800058}
   - {fileID: 3431439133442948843}
-  - {fileID: 2746445364355895579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6865960188500347624
@@ -358,7 +254,28 @@ MonoBehaviour:
   PlayerModel: {fileID: 3431439133442948843}
   savedSpeed: 0
   TargetZ: 0
---- !u!114 &7028878860726245707
+--- !u!114 &6491494154677098063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329997199487871040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f9520f0f92d49498a7411f1d0379be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  SaveData: {fileID: 0}
+  InventoryUI: {fileID: 0}
+  ItemButtonPrefab: {fileID: 6952296643970101361, guid: 39a5225283fde48479dafe581f29ccf6, type: 3}
+  Tabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!114 &-6215209507713704089
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -370,6 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56ec029664ef9cc4590e5eff4e463161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HungerDelay: 20
+  EquipThis: {fileID: 0}
+  PlayerCharacter: 1
   CharacterData:
     CharacterEquipment:
       Helmet: -1
@@ -378,6 +298,7 @@ MonoBehaviour:
       Trinket1: -1
       Trinket2: -1
       Weapon: -1
+      CharacterModel: 0
     CharacterConditions:
       Health: 100
       Hunger: 100
@@ -398,30 +319,7 @@ MonoBehaviour:
       Piety: 0
       Iconoclaust: 0
       Heretic: 0
-    CharacterName: 
-  HungerDelay: 20
-  EquipThis: {fileID: 0}
---- !u!114 &6491494154677098063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329997199487871040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f9520f0f92d49498a7411f1d0379be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 7028878860726245707}
-  SaveData: {fileID: 0}
-  InventoryUI: {fileID: 0}
-  ItemButtonPrefab: {fileID: 6952296643970101361, guid: 39a5225283fde48479dafe581f29ccf6, type: 3}
-  Tabs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+    CharacterName: Man At Arms
 --- !u!1 &8285467225197946590
 GameObject:
   m_ObjectHideFlags: 0

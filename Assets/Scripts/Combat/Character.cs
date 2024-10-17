@@ -8,6 +8,14 @@ public class Character : MonoBehaviour
     //saving for all of the enemies is done in a pool in a (enemy manager) class that stores a list of all enemies with their IDS and their respective conditions
     //or maybe inherit from character to create an Enemy class and manage those in a class still called (enemy manager)
 
+    
+    private float timePassed;
+    public int HungerDelay = 20;
+
+    
+    
+    [SerializeField] Armor EquipThis;
+    public bool PlayerCharacter;
 
     public CharacterData CharacterData;
     private bool loaded;
@@ -65,41 +73,45 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
-        
-        for (int i = 0; i < GameStateManager.Instance.CurrentGameState.Characters.Count; i++)
+        if (CombatManager.Instance != null && !CombatManager.Instance.PlayerCharacters.Contains(CharacterData) && PlayerCharacter)
         {
-            if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
+            CombatManager.Instance.PlayerCharacters.Add(CharacterData);
+
+        }
+        
+        if(GameStateManager.Instance.CurrentGameState.Characters.Count> 0){
+            for (int i = 0; i < GameStateManager.Instance.CurrentGameState.Characters.Count; i++)
             {
-                CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
-                loaded = true; 
-                ResetResistances();
+                if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
+                {
+                    CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
+                    loaded = true; 
+                    ResetResistances();
+                }
             }
         }
-
         if (!loaded)
         {
             GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
         }
-        
-        DontDestroyOnLoad(gameObject);
     }
 
-    public void Update()
+    private void Update()
     {
-
-       
-        /*else  if (Input.GetKeyDown(KeyCode.T))
+        timePassed += Time.deltaTime;
+        if (timePassed>HungerDelay)
         {
-            SaveCharacter();
-        }else  if (Input.GetKeyDown(KeyCode.Y))
+            print("hungry");
+            HungerCheck();
+            timePassed = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            LoadCharacter();
-        }*/
-        
-        
+            UpdateEquipment(EquipThis);
+        }
     }
 
- 
+
     public void Die(){
         
     }
@@ -193,6 +205,65 @@ public class Character : MonoBehaviour
             UpdateResistances(ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Boots],null);
         }
     }
+    
+     public void HungerCheck()
+    {
+        CharacterData.CharacterConditions.Hunger--;
+
+        if (CharacterData.CharacterConditions.Hunger == 0)
+        {
+            Die();  
+        }else if (CharacterData.CharacterConditions.Hunger == 60)
+        {
+            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Weakness);
+        }else if (CharacterData.CharacterConditions.Hunger ==30)
+        {
+            CharacterData.CharacterConditions.Afflictions.Add(Affliction.Starvation);
+        }
+    }
+
+    
+    public void UpdateEquipment(Item NewEquipment)
+    {
+        Weapon weapon = NewEquipment as Weapon;
+        Armor armor = NewEquipment as Armor;
+
+        if (armor)
+        {
+            Armor oldArmor = null;
+
+
+            if (armor.Slot == ArmorSlots.Body && CharacterData.CharacterEquipment.Torso >= 0)
+            {
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Torso];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
+            }
+            else if (armor.Slot == ArmorSlots.Head && CharacterData.CharacterEquipment.Helmet >= 0)
+            {
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Helmet];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
+            }
+            else if (armor.Slot == ArmorSlots.Feet && CharacterData.CharacterEquipment.Boots >= 0)
+            {
+                oldArmor = ItemLibrary.Instance.Armors[CharacterData.CharacterEquipment.Boots];
+                CharacterData.CharacterEquipment.Helmet = ItemLibrary.Instance.Armors.IndexOf(armor);
+            }
+
+            UpdateResistances(armor, oldArmor);
+
+
+            print("was armor");
+        }
+        else if (weapon)
+        {
+            CharacterData.CharacterEquipment.Weapon = ItemLibrary.Instance.Weapons.IndexOf(weapon);
+            print("was weapon");
+        }
+        else
+        {
+            print("was other");
+        }
+    }
 }
 
 
@@ -228,4 +299,16 @@ public class CharacterData
     public CharacterStats CharacterStatistics;
 
     public string CharacterName;
+}
+
+[System.Serializable]
+public class Equipment
+{
+    public int Helmet = -1;
+    public int Torso = -1;
+    public int Boots = -1;
+    public int Trinket1 = -1, Trinket2 = -1;
+    public int Weapon = -1;
+
+    public int CharacterModel = 0;
 }

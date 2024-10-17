@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Diagnostics;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
@@ -9,22 +12,25 @@ public class CombatManager : MonoBehaviour
     public UnitData Data;
 
 
+    public List<Character> Players = new List<Character>();
+    public List<CharacterData> PlayerCharacters =  new List<CharacterData>(); 
+
     public List<EnemyCombat> EnemyInstances;
     
     public List<Character> Combatants;
     
-    public static CombatManager instance { get; private set; }
+    public static CombatManager Instance { get; private set; }
     
     
     
     private void Awake()
     {
-        if (instance != null && instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
 
-        instance = this;
+        Instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
        DontDestroyOnLoad(gameObject);
         
@@ -35,12 +41,24 @@ public class CombatManager : MonoBehaviour
         Debug.Log("OnSceneLoaded: " + scene.name);
         Debug.Log(mode);
 
-        if (scene.name == "Combat")
+        /*if (scene.name == "Combat")
         {
             SpawnEnemies();
             GetEnemyLimbs();
+            GetPlayerCharacter();
             SetInitiative();
             print("Started fight");
+        }*/
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnEnemies();
+            GetEnemyLimbs();
+            GetPlayerCharacter();
+            SetInitiative();
         }
     }
 
@@ -85,13 +103,18 @@ public class CombatManager : MonoBehaviour
 
         Combatants = temp;
     }
-    
-    
-    
+
+
     public void GetPlayerCharacter()
     {
-        Combatants = new List<Character>();
-        Combatants.AddRange(GetComponents<PlayerCharacter>());
+        for (int i = 0; i < PlayerCharacters.Count; i++)
+        {
+            GameObject temp = Instantiate(ItemLibrary.Instance.CharacterModels[PlayerCharacters[i].CharacterEquipment.CharacterModel],
+                    new Vector3(0, 0, i * 2), Quaternion.identity);
+            temp.GetComponent<Character>().CharacterData = PlayerCharacters[i];
+
+        }
+        
     }
 
     public void SpawnEnemies()

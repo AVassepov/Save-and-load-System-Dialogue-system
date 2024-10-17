@@ -15,7 +15,7 @@ public class EnemyCombat : MonoBehaviour
 
    public void Awake()
    {
-      data =CombatManager.instance.Data;
+      data =CombatManager.Instance.Data;
       
 
 

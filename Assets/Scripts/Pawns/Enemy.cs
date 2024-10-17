@@ -134,8 +134,8 @@ public class Enemy : Pawn
             //after loading back into overworld after fight 
 
 
-            CombatManager.instance.CurrentEncounter = Fight;
-            CombatManager.instance.Data = UnitData;
+            CombatManager.Instance.CurrentEncounter = Fight;
+            CombatManager.Instance.Data = UnitData;
             SceneManager.LoadScene("Combat");
             //SceneManager.LoadScene(1);
         }

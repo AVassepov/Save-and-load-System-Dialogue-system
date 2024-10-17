@@ -13,7 +13,9 @@ public class ItemLibrary : MonoBehaviour
     public List<Consumable> Consumables;
     public List<KeyItem> KeyItems;
 
+    public List<GameObject> CharacterModels;
 
+    
     private void Awake()
     {
         if (Instance != null && Instance != this)

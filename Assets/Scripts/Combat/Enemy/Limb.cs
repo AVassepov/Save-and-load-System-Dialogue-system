@@ -11,8 +11,6 @@ public class Limb : Character
 
 
 
-    public CharacterData CharacterData;
-
 
 
     public List<EnemyMoveScriptable> MoveList;
