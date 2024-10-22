@@ -46,6 +46,8 @@ GameObject:
   - component: {fileID: 5290953141460807894}
   - component: {fileID: 6491494154677098063}
   - component: {fileID: -6215209507713704089}
+  - component: {fileID: 168525604123103242}
+  - component: {fileID: 3683553457723722008}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -320,6 +322,54 @@ MonoBehaviour:
       Iconoclaust: 0
       Heretic: 0
     CharacterName: Man At Arms
+--- !u!54 &168525604123103242
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329997199487871040}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &3683553457723722008
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329997199487871040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.4785734, z: 1}
+  m_Center: {x: 0, y: 0.76207393, z: 0}
 --- !u!1 &8285467225197946590
 GameObject:
   m_ObjectHideFlags: 0

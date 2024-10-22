@@ -79,7 +79,7 @@ public class Character : MonoBehaviour
 
         }
         
-        if(GameStateManager.Instance.CurrentGameState.Characters.Count> 0){
+        if(GameStateManager.Instance && GameStateManager.Instance.CurrentGameState.Characters.Count> 0){
             for (int i = 0; i < GameStateManager.Instance.CurrentGameState.Characters.Count; i++)
             {
                 if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
@@ -90,7 +90,7 @@ public class Character : MonoBehaviour
                 }
             }
         }
-        if (!loaded)
+        if (GameStateManager.Instance  &&!loaded)
         {
             GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
         }

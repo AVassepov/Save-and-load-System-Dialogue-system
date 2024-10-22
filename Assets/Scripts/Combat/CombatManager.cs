@@ -33,7 +33,9 @@ public class CombatManager : MonoBehaviour
         Instance = this;
         SceneManager.sceneLoaded += OnSceneLoaded;
        DontDestroyOnLoad(gameObject);
-        
+
+
+       print(Instance);
     }
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
