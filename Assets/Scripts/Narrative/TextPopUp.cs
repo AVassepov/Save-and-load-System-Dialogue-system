@@ -9,9 +9,9 @@ public class TextPopUp : Interactable
     private DialogueManager DialogueManager;
 
 
-    private void Awake()
+    private void Start()
     {
-        DialogueManager = FindAnyObjectByType<DialogueManager>();
+        DialogueManager = DialogueManager.Instance;
     }
 
 
@@ -23,6 +23,7 @@ public class TextPopUp : Interactable
         {
             DialogueManager.OpeningDialogue = OpeningDialogue;
             DialogueManager.InitiateDialogue();
+            print("Started dialogue");
         } else if (DialogueManager.NextDialogue==null ||(DialogueManager.NextDialogue.NextDialogue == null && DialogueManager.NextDialogue.Responces.Count ==0)) 
         {
             DialogueManager.FinishDialogue();

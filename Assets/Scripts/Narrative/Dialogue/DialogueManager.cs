@@ -46,7 +46,7 @@ public class DialogueManager : MonoBehaviour
 
         Instance = this;
 
-        Canvas.enabled = false;
+        Canvas.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
 
     public void InitiateDialogue()
     {
-        Canvas.enabled = true;
+        Canvas.gameObject.SetActive(true);
         if (!isBusy)
         {
             // prevent walking
@@ -150,7 +150,7 @@ public class DialogueManager : MonoBehaviour
        Player.Instance.Speed =  Player.Instance.savedSpeed;
 
         //Close UI
-        Canvas.enabled = false;
+        Canvas.gameObject.SetActive(false);
 
 
         if (!WaitForDialogue)
