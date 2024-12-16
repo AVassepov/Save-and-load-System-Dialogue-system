@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,15 +24,13 @@ public class InventoryMenu : MonoBehaviour
         UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Consumables, Tabs[2],2);
         UpdateItemList(SaveData.CurrentGameState.CurrentInventory.KeyItems, Tabs[3],3);
 
-
-        InventoryUI.gameObject.SetActive(false);
-
-
+        
+        
         InventoryUI.gameObject.SetActive(false);
     }
 
-
-
+    
+    
     private void Update()
     {
         if ( Input.GetKeyDown(KeyCode.Escape)) 

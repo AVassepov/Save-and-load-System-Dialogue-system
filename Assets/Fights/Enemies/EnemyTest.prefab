@@ -139,6 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dae72c0af80d74a80f57216a969e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HungerDelay: 20
+  EquipThis: {fileID: 0}
+  PlayerCharacter: 0
   CharacterData:
     CharacterEquipment:
       Helmet: -1
@@ -147,6 +150,7 @@ MonoBehaviour:
       Trinket1: -1
       Trinket2: -1
       Weapon: -1
+      CharacterModel: 0
     CharacterConditions:
       Health: 100
       Hunger: 100
@@ -162,14 +166,12 @@ MonoBehaviour:
       DivineRes: 0
       ElementalRes: 0
       Strength: 0
-      Innitiative: 3
+      Innitiative: 4
       CastingStrength: 0
-      Piety: 0
+      Piety: 1
       Iconoclaust: 0
       Heretic: 0
     CharacterName: 
-  HungerDelay: 20
-  EquipThis: {fileID: 0}
   Health: 50
   Critical: 1
   Enemy: {fileID: 0}
@@ -292,6 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dae72c0af80d74a80f57216a969e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HungerDelay: 20
+  EquipThis: {fileID: 0}
+  PlayerCharacter: 0
   CharacterData:
     CharacterEquipment:
       Helmet: -1
@@ -300,6 +305,7 @@ MonoBehaviour:
       Trinket1: -1
       Trinket2: -1
       Weapon: -1
+      CharacterModel: 0
     CharacterConditions:
       Health: 100
       Hunger: 100
@@ -321,8 +327,6 @@ MonoBehaviour:
       Iconoclaust: 0
       Heretic: 0
     CharacterName: 
-  HungerDelay: 20
-  EquipThis: {fileID: 0}
   Health: 5
   Critical: 0
   Enemy: {fileID: 0}
@@ -445,6 +449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dae72c0af80d74a80f57216a969e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HungerDelay: 20
+  EquipThis: {fileID: 0}
+  PlayerCharacter: 0
   CharacterData:
     CharacterEquipment:
       Helmet: -1
@@ -453,6 +460,7 @@ MonoBehaviour:
       Trinket1: -1
       Trinket2: -1
       Weapon: -1
+      CharacterModel: 0
     CharacterConditions:
       Health: 100
       Hunger: 100
@@ -474,8 +482,6 @@ MonoBehaviour:
       Iconoclaust: 0
       Heretic: 0
     CharacterName: 
-  HungerDelay: 20
-  EquipThis: {fileID: 0}
   Health: 5
   Critical: 0
   Enemy: {fileID: 0}

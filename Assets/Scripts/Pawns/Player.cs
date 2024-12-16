@@ -30,7 +30,6 @@ public class Player : Pawn
 
         shootingPosition = transform.GetChild(0);
         
-        CombatManager.Instance.Players.Add(GetComponent<Character>());
     }
 
     void FixedUpdate()

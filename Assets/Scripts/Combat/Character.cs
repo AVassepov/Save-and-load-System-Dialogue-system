@@ -73,23 +73,29 @@ public class Character : MonoBehaviour
 
     private void Start()
     {
+        
+        //something here makes all characters in combat have the same stats
+        
+        //add this to combat if its a player or a teammate 
         if (CombatManager.Instance != null && !CombatManager.Instance.PlayerCharacters.Contains(CharacterData) && PlayerCharacter)
         {
             CombatManager.Instance.PlayerCharacters.Add(CharacterData);
-
         }
+        
         
         if(GameStateManager.Instance && GameStateManager.Instance.CurrentGameState.Characters.Count> 0){
             for (int i = 0; i < GameStateManager.Instance.CurrentGameState.Characters.Count; i++)
             {
                 if (GameStateManager.Instance.CurrentGameState.Characters[i].CharacterName == CharacterData.CharacterName)
                 {
-                    CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
+                    //  CharacterData = GameStateManager.Instance.CurrentGameState.Characters[i];
                     loaded = true; 
                     ResetResistances();
                 }
             }
         }
+
+        //add this to all characters in manager
         if (GameStateManager.Instance  &&!loaded)
         {
             GameStateManager.Instance.CurrentGameState.Characters.Add(CharacterData);
@@ -105,10 +111,7 @@ public class Character : MonoBehaviour
             HungerCheck();
             timePassed = 0;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            UpdateEquipment(EquipThis);
-        }
+       
     }
 
 
@@ -263,6 +266,14 @@ public class Character : MonoBehaviour
         {
             print("was other");
         }
+        
+    }
+    
+    
+    public void SetInnitiative(int newInnitiative)
+    {
+        CharacterData.CharacterStatistics.Innitiative = newInnitiative;
+        print("Updated innitiative = " + newInnitiative);
     }
 }
 

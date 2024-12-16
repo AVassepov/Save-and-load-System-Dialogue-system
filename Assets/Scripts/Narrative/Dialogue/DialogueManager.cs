@@ -9,9 +9,11 @@ public class DialogueManager : MonoBehaviour
 
     public bool WaitForDialogue;
 
-    public Dialogue OpeningDialogue;
+  
+    [HideInInspector]  public Dialogue OpeningDialogue;
     public GameObject SavingUI; 
-    public Dialogue NextDialogue;
+ 
+    [HideInInspector]   public Dialogue NextDialogue;
 
     private string currentPage;
     bool canSkip;
@@ -26,7 +28,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Image NotificationBackground;
     [SerializeField] private TextMeshProUGUI NotificationText;
 
-    public ResponceOption CurrentOption;
+ [HideInInspector]   public ResponceOption CurrentOption;
     [SerializeField] List<ResponceOption> ResponceOptions;
 
     private int charCounter;
@@ -49,32 +51,31 @@ public class DialogueManager : MonoBehaviour
 
     private void Update()
     {
-       if(printing&& Time.frameCount % 10 == 0)
-       {
+        if (printing && Time.frameCount % 10 == 0)
+        {
             ScrollText();
-            
-       }
+        }
 
-       if (Input.GetButtonDown("Jump"))
-       {
-           if (charCounter == 0 && !printing)
-           {
-               if (NextDialogue != null)
-               {
-                   ContinueDialogue();
-               }
-               else
-               {
-                   FinishDialogue();
-               }
-           }
-           else
-           {
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (charCounter == 0 && !printing)
+            {
+                if (NextDialogue != null)
+                {
+                    ContinueDialogue();
+                }
+                else
+                {
+                    FinishDialogue();
+                }
+            }
+            else
+            {
                 SkipScroll();
-           }
-       }
+            }
+        }
 
-       if (Input.GetMouseButtonDown(0) && CurrentOption)
+        if (Input.GetMouseButtonDown(0) && CurrentOption)
         {
             SelectOption();
             CurrentOption = null;
@@ -83,6 +84,7 @@ public class DialogueManager : MonoBehaviour
 
     public void InitiateDialogue()
     {
+        Canvas.enabled = true;
         if (!isBusy)
         {
             // prevent walking
@@ -90,7 +92,6 @@ public class DialogueManager : MonoBehaviour
 
 
             //Show UI 
-            Canvas.enabled = true;
             if (OpeningDialogue)
             {
                 NextDialogue = OpeningDialogue;
