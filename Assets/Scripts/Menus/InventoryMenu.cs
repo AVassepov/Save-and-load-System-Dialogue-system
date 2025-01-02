@@ -18,6 +18,7 @@ public class InventoryMenu : MonoBehaviour
 
     private void Start()
     {
+        SaveData = GameStateManager.Instance;
         SaveData.LoadState();
         UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Weapons , Tabs[0],0 );
         UpdateItemList(SaveData.CurrentGameState.CurrentInventory.Armors, Tabs[1],1);

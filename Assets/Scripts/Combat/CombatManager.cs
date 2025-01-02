@@ -56,7 +56,9 @@ public class CombatManager : MonoBehaviour
 
         for (int i = 0; i < temp.Count; i++)
         {
-            innitiatives.Add(temp[i].CharacterData.CharacterStatistics.Innitiative);
+            if(Combatants.Count >=i){
+                innitiatives.Add(Combatants[i].CharacterData.CharacterStatistics.Innitiative);
+            }
         }
 
 
